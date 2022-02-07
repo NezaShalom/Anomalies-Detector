@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zxx">
+@include('frontend.layouts.head')
+
+<body>
+@include('frontend.layouts.header')
+<main>
+    <div class="container">
+        <div class="row justift-content-center roba">
+            <div class="col-md-7 mt-3">	
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{asset('front/assets/img/about-extra-1.svg')}}" alt="inty" class="d-block w-100 img-fluid" />
+                    </div>
+                </div>
+            </div>
+  
+        <div class="col-md-3">
+            <div class="cont-input">
+            <h3 class="reset-title">Gushakisha dosiye</h3>
+            <form>
+              <div class="form-group pt-4">
+                <label class="sub-label"> Code ya dosiye <span class="text-danger">*</span></label>
+                <select class="custom-select" placeholder="Igihe ubwishingizi" style="width: 120px;">
+                    <option selected>Nomero yadosie</option>
+                    <option value="1">Kode yokwishyura</option>
+                </select>
+              </div>
+              <div class="form-group">
+                 <label>Nomero y'idosiye <span class="text-danger">*</span></label>
+                 <input type="text" class="form-control" placeholder="Andika Nomero ya dosiye" />
+              </div>
+              <Button type="submit" class="btn btn-outline-success btn-sx btn-block"><i class="fa fa-search"></i> Shaka</Button>
+           </form>
+            </div>
+        </div>
+    </div>
+</main>
+@include('frontend.layouts.footer')    
+@include('frontend.layouts.foot')
+</body>
+</html>

@@ -1,0 +1,361 @@
+/*--------------------------------------------------------------
+# Navbar
+--------------------------------------------------------------*/
+body,
+.form-control,
+h4 {
+    font-family: 'Nunito', sans-serif;
+}
+
+.navbar {
+    background: #fff;
+}
+
+label {
+    color: #000000;
+    font-size: 1rem;
+}
+
+p {
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+    width: 100%;
+    position: relative;
+    background: url("../img/hero-bgi.png") center bottom no-repeat;
+    background-size: cover;
+    padding: 130px 0 20px 0;
+}
+
+@media (max-width: 991px) {
+    #hero {
+        padding: 140px 0 60px 0;
+    }
+}
+
+@media (max-width: 574px) {
+    #hero {
+        padding: 100px 0 20px 0;
+    }
+}
+
+#hero .hero-img {
+    width: 50%;
+    float: right;
+}
+
+@media (max-width: 991px) {
+    #hero .hero-img {
+        width: 80%;
+        float: none;
+        margin: 0 auto 25px auto;
+    }
+}
+
+#hero .hero-info {
+    width: 50%;
+    float: left;
+}
+
+@media (max-width: 991px) {
+    #hero .hero-info {
+        width: 80%;
+        float: none;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    #hero .hero-info {
+        width: 100%;
+    }
+}
+
+#hero .hero-info h2 {
+    color: #fff;
+    margin-bottom: 40px;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+#hero .hero-info h2 span {
+    color: #74b5fc;
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    #hero .hero-info h2 {
+        font-size: 34px;
+        margin-bottom: 30px;
+    }
+}
+
+
+
+.box {
+    height: 40px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.box>i {
+
+    font-size: 20px;
+
+    color: #777;
+
+}
+
+.box>input {
+    flex: 1;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+
+
+
+/*--------------------------------------------------------------
+# HOME TITLE
+--------------------------------------------------------------*/
+
+.home-title {
+    font: 30px "Nunito Sans";
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.24;
+    letter-spacing: -0.9px;
+    color: #39485a;
+    margin: 0px 20px;
+}
+
+.ser-items {
+    border-left: 2px solid #e0edf9;
+    padding-left: 10px;
+}
+
+@media (max-width: 767.98px) {
+    .home-title {
+        font-size: 24px;
+    }
+}
+
+.text-da,
+.text-da:hover {
+    color: #000000;
+}
+
+.m-0 {
+    margin: 0 !important;
+}
+
+/*--------------------------------------------------------------
+# Button MODAL
+--------------------------------------------------------------*/
+
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 400px;
+    }
+
+    .modal-dialog .modal-content {
+        padding: 1rem;
+    }
+}
+
+.modal-header .close {
+    margin-top: -1.5rem;
+}
+
+.form-title {
+    margin: -3rem 0rem 2rem;
+}
+
+.btn-round {
+    border-radius: 3rem;
+}
+
+.delimiter {
+    padding: 1rem;
+}
+
+.social-buttons .btn {
+    margin: 0 0.5rem 1rem;
+}
+
+.signup-section {
+    padding: 0.3rem 0rem;
+}
+
+.login-title {
+    text-transform: none;
+    font-weight: 600;
+    font-size: 1.725rem;
+    font-family: "Nunito sans";
+    color: #2b333d;
+    margin: 0 0 20px 0 !important;
+}
+
+/*------------------------------
+SIGNUP
+--------------------------------*/
+
+
+.roba {
+    padding-top: 60px;
+}
+
+
+
+
+.carousel-inner {
+    height: 90%;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+
+.cont-input {
+    padding-top: 85px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 2.2rem;
+    font-size: 1rem "Nunito Sans";
+    font-weight: 400;
+    line-height: 1.5;
+
+}
+
+.reset-title {
+    font-size: 19px "Nunito Sans";
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    color: #000000;
+}
+
+.reset-content {
+    background: #ffffff;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+@media screen and (max-width: 785px) {
+
+    section #rowa {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+/*------------------------------
+MODALS
+-------------------------------*/
+
+h5 {
+    background: rgba(0, 99, 207, 0.08);
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin: 0 25px 32px 0;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #0063cf;
+}
+
+.close {
+    font-size: 1.8rem;
+}
+
+.kose {
+    padding: 40px;
+    width: 100%;
+}
+
+.provider {
+    border: 1px solid #0063cf;
+    color: #0063cf;
+    padding: 0 0.5em;
+    border-radius: 5px;
+}
+
+
+/*MITUELLE PAGE*/
+
+
+.service-card {
+    background-color: #ffffff !important;
+    border-radius: 5px;
+    border: 2px solid #0063cf !important;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    /* background-color: #fff; */
+    background-clip: border-box;
+    border: 1px solid #f2f2f2;
+    border-radius: 1px;
+}
+
+.service-card>.card-header {
+    background-color: #e0edf9;
+    color: #162636;
+    border-bottom: 3px solid #0063cf;
+}
+
+/*------------------------------
+LOG IN
+-------------------------------*/
+select:focus,
+input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #2196F3 !important;
+    outline-width: 0 !important;
+    font-weight: 400
+}
+
+.tabs {
+    margin: 2px 5px 0px 5px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.tabs:hover,
+.tabs.active {
+    border-bottom: 1px solid #2196F3
+}
+
+.line {
+    background-color: #CFD8DC;
+    height: 1px;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .tabs h6 {
+        font-size: 12px;
+    }
+}

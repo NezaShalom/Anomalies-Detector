@@ -1,0 +1,50 @@
+h5 {
+    background: rgba(0, 99, 207, 0.08);
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin: 0 25px 32px 0;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #0063cf;
+}
+
+.close {
+    font-size: 1.8rem;
+}
+
+.kose {
+    padding: 40px;
+    width: 100%;
+}
+
+.provider {
+    border: 1px solid #0063cf;
+    color: #0063cf;
+    padding: 0 0.5em;
+    border-radius: 5px;
+}
+
+
+
+/*
+----------------------------------------------
+*/
+
+
+.tabs {
+    margin: 2px 5px 0px 5px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.tabs:hover,
+.tabs.active {
+    border-bottom: 1px solid #2196F3;
+}
+
+.line {
+    background-color: #CFD8DC;
+    height: 1px;
+    width: 100%;
+}
