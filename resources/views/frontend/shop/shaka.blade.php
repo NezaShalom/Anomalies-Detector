@@ -18,25 +18,39 @@
         <div class="col-md-3">
             <div class="cont-input">
             <h3 class="reset-title">Gushakisha dosiye</h3>
-            <form>
+            <form id="shakaform" method="post" action="">
               <div class="form-group pt-4">
                 <label class="sub-label"> Code ya dosiye <span class="text-danger">*</span></label>
-                <select class="custom-select" placeholder="Igihe ubwishingizi" style="width: 120px;">
+                <select name="ubwoko" class="custom-select" placeholder="Igihe ubwishingizi" style="width: 120px;">
                     <option selected>Nomero yadosie</option>
                     <option value="1">Kode yokwishyura</option>
                 </select>
               </div>
               <div class="form-group">
                  <label>Nomero y'idosiye <span class="text-danger">*</span></label>
-                 <input type="text" class="form-control" placeholder="Andika Nomero ya dosiye" />
+                 <input name="code" type="text" class="form-control" placeholder="Andika Nomero ya dosiye" />
               </div>
-              <Button type="submit" class="btn btn-outline-success btn-sx btn-block"><i class="fa fa-search"></i> Shaka</Button>
-           </form>
+            </form>
+              <Button type="submit" class="btn btn-outline-success btn-sx btn-block" onclick="Savedoc()"><i class="fa fa-search"></i> Shaka</Button>
             </div>
         </div>
     </div>
 </main>
 @include('frontend.layouts.footer')    
 @include('frontend.layouts.foot')
+<script>
+    function Savedoc() {
+        fetch("{{route('shaka.post')}}", {
+          headers: {
+            "X-CSRF-Token": $('input[name="_token"]').val()
+          },
+          method: "post",
+          credentials: "same-origin",
+          body: new FormData(document.getElementById('shakaform'))
+        }).then(response=>response.json()).then(function(data){
+            console.log(data);
+        })
+    }
+</script>
 </body>
 </html>

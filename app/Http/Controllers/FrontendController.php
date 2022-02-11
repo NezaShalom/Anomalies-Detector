@@ -107,6 +107,10 @@ class FrontendController extends Controller
     {
         return view('frontend.shop.shaka');
     }
+    public function getDocumentpost(Request $request)
+    {
+        return ($request);
+    }
 
 
     /**

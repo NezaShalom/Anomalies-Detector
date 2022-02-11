@@ -81,7 +81,7 @@
 @include('frontend.layouts.footer')    
 @include('frontend.layouts.foot')
 <script>
-    function Savepart() {
+    function Savesaba() {
         fetch("{{route('sabaid.post')}}", {
           headers: {
             "X-CSRF-Token": $('input[name="_token"]').val()

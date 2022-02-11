@@ -46,6 +46,7 @@ Route::get('/create-account', 'FrontendController@getCreateaccount')->name('fron
 Route::get('/mituweri', 'FrontendController@getMituweri')->name('frontend.mituweri');
 Route::post('/mituweri', 'FrontendController@getMituweripost')->name('mituweri.post');
 Route::get('/document', 'FrontendController@getDocument')->name('frontend.shaka');
+Route::post('/document', 'FrontendController@getDocumentpost')->name('shaka.post');
 Route::get('/single', 'FrontendController@getIngaragu')->name('frontend.ingaragu');
 Route::post('/single', 'FrontendController@getIngaragupost')->name('ingaragu.post');
 Route::get('/being-alive', 'FrontendController@getAriho')->name('frontend.ariho');
