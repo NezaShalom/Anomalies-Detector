@@ -24,7 +24,7 @@
                 <div class="card-header incard"><i class="fal fa-file-word fa-2x"></i>
                 Umwirondoro w'usaba serivisi
                 </div>
-        
+                
                 <div class="card-body">
                     <div class="alert alert-primary d-flex align-items-center" role="alert">
                         <i class="fal fa-exclamation-triangle fa-2x"></i>
@@ -33,9 +33,11 @@
                         </div>
                     </div>
                     <div class="row">
+                    <form id="sabaform" action="" method="post">
+                      <div class="row">
                         <div class="form-group col-md-4">
                             <label class="sub-label"> Umurenge wo kwifotoreza <span class="text-danger">*</span></label>       
-                            <select class="custom-select" style="width: 210px;">
+                            <select name="umurenge" class="custom-select" style="width: 210px;">
                                 <option selected>BUGESERA-GASHORA</option>
                                 <option value="1">BUGESERA-JURU</option>
                                 <option>BUGESERA-NYAMATA</option>
@@ -43,23 +45,23 @@
                         </div>
                         <div class="form-group col-md-5">
                             <label class="sub-label font-weight-bold"> Aho uzayifatira <span class="text-danger">*</span></label>       
-                            <select class="custom-select" style="width: 160px;">
+                            <select name="kuyifatira" class="custom-select" style="width: 160px;">
                                 <option selected>Bugesera</option>
-                                <option value="1">Burera</option>
-                                <option>Gakenke</option>
-                                <option>Gasabo</option>
+                                <option value="Burera">Burera</option>
+                                <option value="Gakenke">Gakenke</option>
+                                <option value="Gasabo">Gasabo</option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
                             <label class="sub-label"> Itariki yo kwifotorezaho <span class="text-danger">*</span></label>       
-                            <input placeholder="Select date" type="date" id="example" class="form-control">
+                            <input name="itariki" placeholder="Select date" type="date" id="example" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label class="sub-label font-weight-bold"> Amazina <span class="text-danger">*</span></label>       
-                            <input placeholder="amazina yawe" type="text" id="amazina" class="form-control">
+                            <input name="amazina" placeholder="amazina yawe" type="text" id="amazina" class="form-control">
                         </div>
-                        
                     </div>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -67,7 +69,7 @@
         <div class="matc mb-3" style="align: right;">
         <div class="buu col mt-3">
             <button type="submit" class="btn btn-info">Hagarika</button>
-            <button type="submit" class="btn btn-primary">Ibikurikira</button>
+            <button type="submit" class="btn btn-primary" onclick="Savesaba()">Emeza</button>
         </div>
         </div>
         </div>
@@ -78,5 +80,20 @@
 </main>
 @include('frontend.layouts.footer')    
 @include('frontend.layouts.foot')
+<script>
+    function Savepart() {
+        fetch("{{route('sabaid.post')}}", {
+          headers: {
+            "X-CSRF-Token": $('input[name="_token"]').val()
+          },
+          method: "post",
+          credentials: "same-origin",
+          body: new FormData(document.getElementById('sabaform'))
+        }).then(response=>response.json()).then(function(data){
+            console.log(data);
+        })
+    }
+</script>
+
 </body>
 </html>

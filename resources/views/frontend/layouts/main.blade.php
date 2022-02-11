@@ -240,15 +240,6 @@
         
         <div class="modal-body step-1">
           <h6>Icyemezo cyogusaba Indangamuntu nyarwanda.</h6>
-          <div class="row mb-3">
-            <div class="col">
-              <select class="custom-select mt-3" style="width: 220px;">
-                <option selected>Gusaba Indangamuntu</option>
-              </select>
-            </div>
-          </div>
-          
-          <h6>Ibyerekeye iyi serivisi</h6>
           <p>Iyi servisi ifasha umunyarwanda wese ubyifuza gusaba indangamuntu ubwa mbere. Usaba agomba kuba afite nomero y'ifishi muri NIDA. Udafite nomero y’ifishi agomba kujya kuyisaba umukozi ushinzwe irangamimerere mu murenge yitwaje icyangombwa kimuranga afite. Kubindi bisobanuro: info@nida.gov.rw</p>
           <div class="row">
             <div class="col">
@@ -290,9 +281,9 @@
           <h6>Hitamo serivisi muri izi zikurikira ubone gusaba.</h6>
           <div class="row mb-4">
             <div class="col">
-              <select class="custom-select mt-3" style="width: 270px;">
-                <option selected value="">-- Hitamo -- </option>
-                <option onclick="myFunction()">Kwiyandikisha ngo ushyingirwe</option>
+              <select class="custom-select mt-3" id="selectBox" onChange="changeFunc();" style="width: 270px;">
+                <option selected="selected">-- Hitamo -- </option>
+                <option value="1">Kwiyandikisha ngo ushyingirwe</option>
               </select>
             </div>
           </div>
@@ -374,12 +365,12 @@
     
     
     <script>
-      function myFunction() {
+      function changeFunc() {
         var x= document.getElementById("myGus");
-        if (x.style.display=="none") {
-          x.style.display = "block";
-        } else {
+        if (x.style.display=="block") {
           x.style.display = "none";
+        } else {
+          x.style.display = "block";
         }
       }
       </script>

@@ -44,11 +44,19 @@
                                     <li><a href="index3.html">Hospital</a></li>
                                 </ul>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="#Department" class="has-arrow"><i class="fa fa-th-large"></i> <span>Department</span></a>
                                 <ul>
                                     <li><a href="{{route('departments.create')}}">Create</a></li>                                    
                                     <li><a href="{{route('departments.index')}}">All Departments</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#Service" class="has-arrow"><i class="far fa-toolbox"></i> <span>Service Management</span></a>
+                                <ul>
+                                                                       
+                                    <li><a href="{{route('services.create')}}">Add Services</a></li>
+                                    <li><a href="{{route('services.index')}}">All Services</a></li> 
                                 </ul>
                             </li>
                             <li>

@@ -55,17 +55,25 @@ class FrontendController extends Controller
     {
         return view('frontend.shop.mituweri');
     }
+    public function getMituweripost(Request $request)
+    {
+        return ($request);
+    }
     public function getIngaragu()
     {
         return view('frontend.shop.ingaragu');
     }
-    public function getDocument()
+    public function getIngaragupost(Request $request)
     {
-        return view('frontend.shop.shaka');
+        return ($request);
     }
     public function getAriho()
     {
         return view('frontend.shop.ariho');
+    }
+    public function getArihopost(Request $request)
+    {
+        return ($request);
     }
     public function getSimbura()
     {
@@ -75,13 +83,29 @@ class FrontendController extends Controller
     {
         return view('frontend.shop.partde');
     }
+    public function getPartdepost(Request $request)
+    {
+        return ($request);
+    }
     public function getSabaid()
     {
         return view('frontend.shop.sabaid');
     }
+    public function getSabaidpost(Request $request)
+    {
+        return ($request);
+    }
     public function getShingirwa()
     {
         return view('frontend.shop.shingirwa');
+    }
+    public function getShingirwapost(Request $request)
+    {
+        return ($request);
+    }
+    public function getDocument()
+    {
+        return view('frontend.shop.shaka');
     }
 
 

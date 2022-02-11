@@ -63,12 +63,12 @@
                       <div role="tabpanel" class="tab-pane active" id="uploadTab">
                         <div class="d-flex flex-column">
                           <h4 class="login-title" style="font-family: 'Nunito', sans-serif;"><i class="far fa-user"></i> Injira</h4>
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('deter') }}">
                               @csrf
                               <div class="form-group text-left">
                                 <label for="email">Nomero ya telefoni (Rwanda)</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Andika nomero ya Telefoni" autofocus>
-                                @error('email')
+                                <input id="email" type="text" class="form-control @error('mobile_number') is-invalid @enderror" name="mobile_number" value="{{ old('mobile_number') }}" required placeholder="Andika nomero ya Telefoni">
+                                @error('mobile_number')
                                   <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                   </span>
@@ -77,14 +77,14 @@
                           
                               <div class="form-group text-left">
                                 <label for="password">Ijambo ry'ibanga</label>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Andika ijambo ry'ibanga">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Andika ijambo ry'ibanga">
                                 @error('password')
                                   <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                   </span>
                                 @enderror
                               </div>
-                            <button type="button" class="btn btn-dark btn-block btn-round">Injira</button>
+                            <button type="submit" class="btn btn-dark btn-block btn-round">Injira</button>
                           </form>
                         </div>
                       </div>           

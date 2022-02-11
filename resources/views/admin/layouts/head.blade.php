@@ -12,7 +12,8 @@
 <link rel="stylesheet" href="{{asset('template/assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}">
 <link rel="stylesheet" href="{{asset('template/assets/vendor/jvectormap/jquery-jvectormap-2.0.3.min.css')}}"/>
 <link rel="stylesheet" href="{{asset('template/assets/vendor/morrisjs/morris.min.css')}}" />
-
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{asset('template/assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('template/assets/css/color_skins.css')}}">

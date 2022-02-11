@@ -89,7 +89,7 @@
         <div class="mat-c mb-3" style="align:right";>
         <div class="buu col mt-3">
             <button type="submit" class="btn btn-info">Hagarika</button>
-            <button type="submit" class="btn btn-primary">Ibikurikira</button>
+            <button type="submit" class="btn btn-primary">Emeza</button>
         </div>
         </div>
         </div>

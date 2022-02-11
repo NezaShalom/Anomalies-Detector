@@ -34,13 +34,13 @@
                         </div>
                     </div>
                     <div class="row">
-        
+                        <form id="mituweriform" action="" method="post">
                         <div class="col-sm-4">
                             <label class="main-label mb-3 font-weight-bold"> Umwirondoro w'usaba serivisi </label>
                             <div class="row">
                                 <div class="form-group col-md-5">
                                     <label class="sub-label"> Igihe ubwishingizi buzamara <span class="text-danger">*</span></label>       
-                                    <select class="custom-select" placeholder="Igihe ubwishingizi" style="width: 120px;">
+                                    <select name="igihe" class="custom-select" placeholder="Igihe ubwishingizi" style="width: 120px;">
                                         <option selected>2021 - 2022</option>
                                         <option value="1">2022 - 2023</option>
                                     </select>
@@ -48,7 +48,7 @@
         
                                 <div class="form-group col-md-7">       
                                     <label class="sub-label"> Nomero y'indangamuntu <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Andika nomero y'irangamuntu" formcontrolname="periodFormControl">    
+                                    <input name="idnum" type="text" class="form-control" placeholder="Andika nomero y'irangamuntu" formcontrolname="periodFormControl">    
                                 </div>
                             </div>
                         </div>
@@ -59,17 +59,18 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="sub-label"> Amafaranga yo kwishyura <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Andika amafaranga" formcontrolname="periodFormControl">
+                            <input type="text" name="money" class="form-control" placeholder="Andika amafaranga" formcontrolname="periodFormControl">
                         </div>
                     </div>
                 </div>
+            </form>
                 </div>
             </div>
         </div>
         <div class="mat-c" style="align: right";>
         <div class="buu col mt-3">
             <button type="submit" class="btn btn-info">Hagarika</button>
-            <button type="submit" class="btn btn-primary">Ibikurikira</button>
+            <button type="submit" class="btn btn-primary" onclick="Savemt()">Emeza</button>
         </div>
         </div>
         </div>
@@ -79,5 +80,20 @@
 </main>
 @include('frontend.layouts.footer')    
 @include('frontend.layouts.foot')
+
+<script>
+    function Savemt() {
+        fetch("{{route('mituweri.post')}}", {
+          headers: {
+            "X-CSRF-Token": $('input[name="_token"]').val()
+          },
+          method: "post",
+          credentials: "same-origin",
+          body: new FormData(document.getElementById('mituweriform'))
+        }).then(response=>response.json()).then(function(data){
+            console.log(data);
+        })
+    }
+    </script>
 </body>
 </html>
