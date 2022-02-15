@@ -18,7 +18,7 @@
           <div class="col-md-4">
               <div class="cont-input">
               <h3 class="reset-title">Gufungura konti</h3>
-              <form>
+              <form id="createacc" method="post" action="">
                 <div class="form-group pt-4">
                    <label>Nomero y'indangamuntu</label>
                    <input type="text" class="form-control" placeholder="Andika Nomero y'indangamuntu" />
