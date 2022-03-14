@@ -23,10 +23,10 @@
                     <th>name</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th>Department</th>
-                    <th>Start Date</th>
-                    <th>Address</th>
                     <th>Mobile</th>
+                    <th>Department</th>
+                    <th>Address</th>
+                    <th>Start Date</th>
                     <th>Edit</th>
                     <th>Delete</th>
 
@@ -44,10 +44,11 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td><span class="badge badge-success">{{$user->role}}</span></td>
-                    <td>{{$user->department_id}}</td>
-                    <td>{{$user->created_at}}</td>
-                    <td>{{$user->address}}</td>
                     <td>{{$user->mobile_number}}</td>
+                    <td>{{$user->department_id}}</td>
+                    <td>{{$user->address}}</td>
+                    <td>{{$user->created_at}}</td>
+                    
                     <td>
                       <a href="{{route('users.edit',[$user->id])}}" class="btn btn-success btn-sm">Edit</a>
                   </td>

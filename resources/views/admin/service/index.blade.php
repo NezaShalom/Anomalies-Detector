@@ -98,7 +98,6 @@
 
 
 
-<script src="{{asset('template/assets/vendor/sweetalert/sweetalert.min.js')}}"></script> <!-- SweetAlert Plugin Js  -->
 <script>
   $('input[name=toogle]').change(function () {
     var mode=$(this).prop('checked'); 

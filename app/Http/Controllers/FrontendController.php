@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class FrontendController extends Controller
 {
@@ -13,7 +15,8 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.layouts.main');
+        $services = Service::all();
+        return view('frontend.layouts.main', compact('services'));
     }
 
     /**
@@ -111,6 +114,20 @@ class FrontendController extends Controller
     {
         return ($request);
     }
+    public function serviice()
+    {
+        $service = Service::where('status', 'active')->get();
+        return view('frontend.pay.services', compact('service'));
+    }
+    public function viewservice($slug)
+    {
+        if (Service::where('slug', $slug)->exists()) {
+            $service = Service::where('slug', $slug)->first();
+            return view('frontend.pay.services', compact('service'));
+        } else {
+            return redirect('/')->with('message', "Slug doesn't exist");
+        }
+    }
 
 
     /**
@@ -145,5 +162,10 @@ class FrontendController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function receipt()
+    {
+        return view('frontend.pay.receipt');
     }
 }

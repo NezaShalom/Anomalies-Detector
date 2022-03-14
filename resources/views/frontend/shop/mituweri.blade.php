@@ -6,7 +6,7 @@
 @include('frontend.layouts.header')
 <main>
 
-    <div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-xs-12 space-he">
         <div class="content-wrapper container">
             <div class="breadcrumbs mt-4">
                 <a href="/">Ahabanza</a> / Kwishyura Mituweli
@@ -67,10 +67,10 @@
                 </div>
             </div>
         </div>
-        <div class="mat-c" style="align: right";>
+        <div class="mb-3 float-right">
         <div class="buu col mt-3">
             <button type="submit" class="btn btn-info">Hagarika</button>
-            <button type="submit" class="btn btn-primary" onclick="Savemt()">Emeza</button>
+            <button type="submit" class="btn btn-primary" onclick="Savemt()">Ibikurikira</button>
         </div>
         </div>
         </div>

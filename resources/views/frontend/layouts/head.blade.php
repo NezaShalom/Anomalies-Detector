@@ -26,6 +26,7 @@
   <link href="{{asset('front/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
   </head>
     <style>
+
       p{
         font-size: 0.875rem;
         font-weight: 400;

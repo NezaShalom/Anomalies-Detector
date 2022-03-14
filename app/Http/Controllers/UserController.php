@@ -26,7 +26,7 @@ class UserController extends Controller
         } else {
             DB::table('users')->where('id', $request->id)->update(['status' => 'inactive']);
         }
-        return response()->json(['msg' => 'Successfully updated status', 'status' => true]);
+        return response()->json(['message' => 'Successfully updated status', 'status' => true]);
     }
 
     /**
@@ -50,6 +50,7 @@ class UserController extends Controller
         $this->validate($request, [
             'firstname' => 'required',
             'lastname' => 'required',
+            'national_id' => 'required',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string',
             'department_id' => 'required',

@@ -5,7 +5,7 @@
 @include('frontend.layouts.header')
 <main>
 
-    <div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-xs-12 space-he">
         <div class="content-wrapper container">
             <div class="breadcrumbs mt-4">
                 <a href="/">Ahabanza</a> / Gusaba Indangamuntu
@@ -20,6 +20,11 @@
             </div>
 
         <div class="">
+            @error('minaloc_ariho')<p class="alert alert-danger d-flex align-items-center font-weight-bold" role="alert">
+                <i class="fal fa-exclamation-circle fa-2x"></i>
+                     {{$message}}
+                </p>
+            @enderror
             <div class="card service-card">
                 <div class="card-header incard"><i class="fal fa-file-word fa-2x"></i>
                 Umwirondoro w'usaba serivisi
@@ -57,7 +62,7 @@
                             <input name="itariki" placeholder="Select date" type="date" id="example" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
-                            <label class="sub-label font-weight-bold"> Amazina <span class="text-danger">*</span></label>       
+                            <label class="sub-label font-weight-bold"> Nimero y'ifishi yamavuko <span class="text-danger">*</span></label>       
                             <input name="amazina" placeholder="amazina yawe" type="text" id="amazina" class="form-control">
                         </div>
                     </div>
@@ -80,7 +85,7 @@
 </main>
 @include('frontend.layouts.footer')    
 @include('frontend.layouts.foot')
-<script>
+{{-- <script>
     function Savesaba() {
         fetch("{{route('sabaid.post')}}", {
           headers: {
@@ -93,7 +98,7 @@
             console.log(data);
         })
     }
-</script>
+</script> --}}
 
 </body>
 </html>

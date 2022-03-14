@@ -25,6 +25,15 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
+                        <label>National ID</label>
+                        <input type="text" name="national_id" class="form-control @error('national_id') is-invalid @enderror" required="">
+                         @error('national_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                    </div>
+                    <div class="form-group">
                         <label>First name</label>
                         <input type="text" name="firstname" class="form-control @error('firstname') is-invalid @enderror" required="">
                          @error('firstname')
@@ -62,8 +71,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Age</label>
-                        <input  name="age" class="form-control @error('age') is-invalid @enderror" required="" id="datepicker">
+                        <label>Date of birth</label>
+                        <input type="date" name="age" class="form-control @error('age') is-invalid @enderror" required="">
                          @error('age')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

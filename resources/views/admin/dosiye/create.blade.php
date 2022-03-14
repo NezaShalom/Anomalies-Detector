@@ -10,6 +10,7 @@
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin"><i class="fal fa-home"></i></a></li>                            
                         <li class="breadcrumb-item active">IremboGov</li>
+                        <li class="breadcrumb-item active">Add Documents</li>
                     </ul>
                 </div>
             </div>

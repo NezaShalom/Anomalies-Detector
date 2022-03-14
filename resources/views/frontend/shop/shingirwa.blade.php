@@ -6,7 +6,7 @@
 @include('frontend.layouts.header')
 <main>
 
-    <div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-xs-12 space-he">
         <div class="content-wrapper container">
             <div class="breadcrumbs mt-4">
                 <a href="/">Ahabanza</a> / Kwiyandikisha ngo ushyingirwe
@@ -126,7 +126,7 @@
 @include('frontend.layouts.footer')    
 @include('frontend.layouts.foot')
 
-<script>
+{{-- <script>
     function Saveshi() {
         fetch("{{route('shingirwa.post')}}", {
           headers: {
@@ -139,6 +139,6 @@
             console.log(data);
         })
     }
-</script>
+</script> --}}
 </body>
 </html>

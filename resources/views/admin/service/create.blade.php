@@ -40,20 +40,20 @@
                         <div class="col-lg-12 col-md-6">
                             <div class="form-group">
                             <label>Title</label>
-                            <input type="text" placeholder="Title" class="form-control" name="title" value="{{old('title')}}">
+                            <input type="text" placeholder="Title" class="form-control" name="title">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" value="{{old('description')}}"></textarea>
+                                <textarea class="form-control" name="description"></textarea>
                             </div>
                         </div>
                         
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label>Price</label>
-                                <input type="text" class="form-control" name="price" value="{{old('price')}}">
+                                <input type="text" class="form-control" name="price">
                             </div>
                         </div>
                         

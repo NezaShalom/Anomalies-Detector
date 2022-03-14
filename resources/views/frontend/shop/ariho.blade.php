@@ -6,7 +6,7 @@
 @include('frontend.layouts.header')
 <main>
 
-    <div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-xs-12 space-he">
         <div class="content-wrapper container">
             <div class="breadcrumbs mt-4">
                 <a href="/">Ahabanza</a> / Icyangombwa cyuko uriho
@@ -21,6 +21,11 @@
             </div>
 
           <div class="">
+            @error('minaloc_ariho')<p class="alert alert-danger d-flex align-items-center font-weight-bold" role="alert">
+                <i class="fal fa-exclamation-circle fa-2x"></i>
+                     {{$message}}
+                </p>
+            @enderror
             <div class="card service-card">
                 <div class="card-header incard"><i class="fal fa-file-word fa-2x"></i>
                 Umwirondoro w'usaba serivisi
@@ -33,9 +38,9 @@
                             Iyi serivisi ihabwa abanyarwanda gusa
                         </div>
                     </div>
-                    <div class="row">
-                        
-                    <form id="arihoform" action="" method="post">
+                    <div class="row">   
+                    <form id="arihoform" action="{{ route('ariho.store') }}" method="post">
+                        @csrf
                         <div class="col-sm-4">
                             <label class="main-label mb-3 font-weight-bold"> Umwirondoro w'usaba serivisi </label>
                             <div class="row">
@@ -84,25 +89,25 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
+                    <div class="mb-3 float-right">
+                        <div class="col mt-3">
+                            <button type="button" class="btn btn-info">Hagarika</button>
+                            <button type="submit" class="btn btn-primary">Ibikurikira</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        
-        <div class="mat-c mb-3" style="align:right";>
-        <div class="buu col mt-3">
-            <button type="submit" class="btn btn-info">Hagarika</button>
-            <button type="submit" class="btn btn-primary" onclick="Saveariho()">Emeza</button>
-        </div>
-        </div>
+            </form>
         </div>
     </div>
+</div><br><br>
 
 
 </main>
 @include('frontend.layouts.footer')    
 @include('frontend.layouts.foot')
 
-<script>
+{{-- <script>
 function Saveariho() {
     fetch("{{route('ariho.post')}}", {
       headers: {
@@ -115,6 +120,6 @@ function Saveariho() {
         console.log(data);
     })
 }
-</script>
+</script> --}}
 </body>
 </html>

@@ -15,7 +15,9 @@ class CreateAnomaliesTable extends Migration
     {
         Schema::create('anomalies', function (Blueprint $table) {
             $table->id();
-            $table->text('description');
+            $table->string('names');
+            $table->string('national_id');
+            $table->string('service');
             $table->timestamps();
         });
     }

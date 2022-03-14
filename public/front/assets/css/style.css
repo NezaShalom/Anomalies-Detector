@@ -8,8 +8,10 @@ h4 {
 }
 
 .navbar {
-    background: #fff;
+    background-color: #1545b3;
+    height: 78px;
 }
+
 
 label {
     color: #000000;
@@ -29,7 +31,7 @@ p {
     position: relative;
     background: url("../img/hero-bgi.png") center bottom no-repeat;
     background-size: cover;
-    padding: 130px 0 20px 0;
+    padding: 200px 0 10px 0;
 }
 
 @media (max-width: 991px) {
@@ -131,7 +133,7 @@ p {
 --------------------------------------------------------------*/
 
 .home-title {
-    font: 30px "Nunito Sans";
+    font: 20px "Nunito Sans";
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -159,6 +161,98 @@ p {
 
 .m-0 {
     margin: 0 !important;
+}
+
+/*
+-----------------------------------------------------------------------
+SIGNUP
+----------------------------------------------------------------------
+*/
+
+.form-register .steps {
+    margin-bottom: 36px;
+}
+
+.form-register .steps ul {
+    display: flex;
+    display: -webkit-flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.form-register .steps li,
+.form-register .steps li.current {
+    outline: none;
+    -o-outline: none;
+    -ms-outline: none;
+    -moz-outline: none;
+    -webkit-outline: none;
+}
+
+.form-register .steps li a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background: #ccc;
+    margin-right: 30px;
+    position: relative;
+    outline: none;
+}
+
+
+.form-register .steps li a::before {
+    position: absolute;
+    content: "";
+    background: #e5e5e5;
+    width: 30px;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    left: 100%;
+}
+
+.form-register .steps li.last a::before {
+    content: none;
+}
+
+.form-register .steps li.current a,
+.form-register .steps li.current a:active,
+.form-register .steps li.done a::before,
+.form-register .steps li.done a,
+.form-register .steps li.done a:active {
+    background: #030303;
+}
+
+.form-register .steps li .current-info {
+    display: none;
+}
+
+.form-register .steps li .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Nunito sans';
+}
+
+.form-register .content h2 {
+    display: none;
 }
 
 /*--------------------------------------------------------------
@@ -192,7 +286,7 @@ p {
     padding: 1rem;
 }
 
-.social-buttons .btn {
+.social-buttons {
     margin: 0 0.5rem 1rem;
 }
 
@@ -209,61 +303,6 @@ p {
     margin: 0 0 20px 0 !important;
 }
 
-/*------------------------------
-SIGNUP
---------------------------------*/
-
-
-.roba {
-    padding-top: 60px;
-}
-
-
-
-
-.carousel-inner {
-    height: 90%;
-    overflow-x: hidden;
-    color: #fff;
-}
-
-
-.cont-input {
-    padding-top: 85px;
-}
-
-.form-control {
-    display: block;
-    width: 100%;
-    height: 2.2rem;
-    font-size: 1rem "Nunito Sans";
-    font-weight: 400;
-    line-height: 1.5;
-
-}
-
-.reset-title {
-    font-size: 19px "Nunito Sans";
-    font-weight: 600;
-    letter-spacing: -0.2px;
-    color: #000000;
-}
-
-.reset-content {
-    background: #ffffff;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-@media screen and (max-width: 785px) {
-
-    section #rowa {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-}
 
 /*------------------------------
 MODALS
@@ -324,6 +363,10 @@ h5 {
     border-bottom: 3px solid #0063cf;
 }
 
+.space-he {
+    margin-top: 100px;
+}
+
 /*------------------------------
 LOG IN
 -------------------------------*/
@@ -358,4 +401,130 @@ input:focus {
     .tabs h6 {
         font-size: 12px;
     }
+}
+
+/*
+=======================================================
+RECEIPT CSS
+=======================================================
+*/
+.text-secondary-d1 {
+    color: #728299 !important;
+}
+
+.page-headera {
+    margin: 0 0 1rem;
+    padding-bottom: 1rem;
+    padding-top: .5rem;
+    border-bottom: 1px dotted #e2e2e2;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.page-titlea {
+    padding: 0;
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 300;
+}
+
+.brc-default-l1 {
+    border-color: #dce9f0 !important;
+}
+
+.ml-n1,
+.mx-n1 {
+    margin-left: -.25rem !important;
+}
+
+.mr-n1,
+.mx-n1 {
+    margin-right: -.25rem !important;
+}
+
+.text-grey-m2 {
+    color: #888a8d !important;
+}
+
+.text-success-m2 {
+    color: #86bd68 !important;
+}
+
+.font-bolder,
+.text-600 {
+    font-weight: 600 !important;
+}
+
+.text-110 {
+    font-size: 110% !important;
+}
+
+.text-blue {
+    color: #478fcc !important;
+}
+
+.pb-25,
+.py-25 {
+    padding-bottom: .75rem !important;
+}
+
+.pt-25,
+.py-25 {
+    padding-top: .75rem !important;
+}
+
+.bgc-default-tp1 {
+    background-color: #1545b3 !important;
+}
+
+.bgc-default-l4,
+.bgc-h-default-l4:hover {
+    background-color: #f3f8fa !important;
+}
+
+
+.btn-light {
+    color: #757984;
+    background-color: #f5f6f9;
+    border-color: #dddfe4;
+}
+
+.w-2 {
+    width: 1rem;
+}
+
+.text-120 {
+    font-size: 120% !important;
+}
+
+.text-primary-m1 {
+    color: #4087d4 !important;
+}
+
+.text-danger-m1 {
+    color: #dd4949 !important;
+}
+
+.text-blue-m2 {
+    color: #68a3d5 !important;
+}
+
+.text-150 {
+    font-size: 150% !important;
+}
+
+.text-60 {
+    font-size: 60% !important;
+}
+
+.text-grey-m1 {
+    color: #7b7d81 !important;
+}
+
+.align-bottom {
+    vertical-align: bottom !important;
 }

@@ -1,43 +1,53 @@
 <header>
-        <nav class="navbar navbar-expand-lg bg-light">
+        
+  <nav class="navbar navbar-expand-lg top fixed-top navbar-light">
             <div class="container">
             <a class="navbar-brand" href="/">
-            <img src="{{asset('front/assets/img/logo-top.png')}}" width="85" height="30" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-        @guest
+            <img src="https://irembo.gov.rw/assets/images/logos/irembo-gov.svg" width="100%" height="25px" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav navbar-nav-right mr-0 ml-auto">
+        
         <li class="nav-item active">
-            <a class="btn btn-primary mr-2" href="{{route('frontend.shaka')}}"><i class="fal fa-search"></i> Shaka Dosiye <span class="sr-only">(current)</span></a>
+            <a class="btn btn-info mr-md-3 mb-2 mb-md-0" href="{{route('frontend.shaka')}}"><i class="fal fa-search"></i><span class="no-text"> Shaka Dosiye</span></a>
         </li>
-        <li class="nav-item">
-            <a class="btn btn-primary mr-2" href="{{route('frontend.create')}}"><i class="fal fa-user-plus"></i> Iyandikishe</a>
-        </li>
-        <li class="nav-item">
-            <a class="btn btn-primary" href="/login" data-toggle="modal" data-target="#myModal"><i class="far fa-sign-in"></i> Kwinjira</a>
-        </li>
-        @else
-        <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->name }}
-            </a>
 
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
+        {{--  --}}
+        <ul class="navbar-nav ml-auto">
+          <!-- Authentication Links -->
+          @guest
+              <li class="nav-item">
+                  <a class="btn btn-primary  mr-md-3 mb-2 mb-md-0" href="/login" data-toggle="modal" data-target="#myModal"><i class="far fa-sign-in"></i>{{ __(' Kwinjira') }}</a>
+              </li>
+              @if (Route::has('register'))
+                  <li class="nav-item">
+                      <a class="btn btn-primary mr-md-3 mb-2 mb-md-0" href="{{route('frontend.create')}}"><i class="fal fa-user-plus"></i>{{ __(' Iyandikishe') }}</a>
+                  </li>
+              @endif
+          @else
+              <li class="nav-item dropdown">
+                  <a id="navbarDropdown" class="btn btn-primary  mr-md-3 mb-2 mb-md-0 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      {{ Auth::user()->name }}
+                  </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
-        </li>
-    @endguest
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                      </form>
+                  </div>
+              </li>
+          @endguest
+      </ul>
+
         </ul>
     </div>
     </div>
@@ -63,12 +73,12 @@
                       <div role="tabpanel" class="tab-pane active" id="uploadTab">
                         <div class="d-flex flex-column">
                           <h4 class="login-title" style="font-family: 'Nunito', sans-serif;"><i class="far fa-user"></i> Injira</h4>
-                            <form method="POST" action="{{ route('deter') }}">
+                            <form method="POST" action="{{ route('login') }}">
                               @csrf
                               <div class="form-group text-left">
                                 <label for="email">Nomero ya telefoni (Rwanda)</label>
-                                <input id="email" type="text" class="form-control @error('mobile_number') is-invalid @enderror" name="mobile_number" value="{{ old('mobile_number') }}" required placeholder="Andika nomero ya Telefoni">
-                                @error('mobile_number')
+                                <input id="email" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required placeholder="Andika nomero ya Telefoni">
+                                @error('phone')
                                   <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                   </span>
@@ -89,7 +99,7 @@
                         </div>
                       </div>           
 
-                      <div role="tabpanel" class="tab-pane" id="browseTab">               
+                      {{-- <div role="tabpanel" class="tab-pane" id="browseTab">               
                         <div class="d-flex flex-column">
                           <h4 class="login-title" style="font-family: 'Nunito', sans-serif;"><i class="far fa-user"></i> Koresha ubutumwa bwa'Telefoni</h4>
                           <form>
@@ -106,7 +116,7 @@
                             <button type="button" class="btn btn-dark btn-block btn-round" id="verifPhNum" >Injira</button>
                           </form>
                         </div>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </div>

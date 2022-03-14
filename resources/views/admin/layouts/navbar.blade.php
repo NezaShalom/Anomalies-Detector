@@ -4,8 +4,8 @@
             <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
         </div>
 
-        <div class="navbar-brand">
-            <a href="index.html"><img src="{{asset('template/assets/img/logo-top.png')}}" alt="Lucid Logo" class="img-responsive logo"></a>                
+        <div class="navbar-brand p-3">
+            <a href="/"><img src="{{asset('template/assets/img/logo-top.png')}}"  alt="Lucid Logo" class="img-responsive logo"></a>                
         </div>
         
         <div class="navbar-right">

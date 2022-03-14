@@ -17,9 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password', 'mobile_number', 'address', 'role', 'status', 'marriage', 'life', 'age', 'department_id', 'image'
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -30,16 +28,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-    public function department()
+    public function role()
     {
-        return $this->hasOne(Department::class, 'id', 'department_id');
+        return $this->hasOne(Role::class);
     }
 }

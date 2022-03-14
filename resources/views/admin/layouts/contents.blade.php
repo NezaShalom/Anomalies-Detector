@@ -33,7 +33,7 @@
                 <div class="card overflowhidden">
                     <div class="body">
                         <h3>109 <i class="fas fa-shopping-basket float-right"></i></h3>
-                        <span>Products Sold</span>                            
+                        <span>Services Sold</span>                            
                     </div>
                     <div class="progress progress-xs progress-transparent custom-color-blue m-b-0">
                         <div class="progress-bar" data-transitiongoal="64"></div>

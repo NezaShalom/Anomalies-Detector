@@ -3,7 +3,19 @@
 @section('content')
 <div id="main-content">
   <div class="col-md-12">
-    <div class="card mt-4">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Documents
+          <a class="btn btn-sm btn-outline-secondary" href="{{route('dosiyes.create')}}"><i class="fa fa-plus"></i> Create Document</a></h2>
+            <ul class="breadcrumb float-left">
+              <li class="breadcrumb-item"><a href="{{route('admin')}}"><i class="fa fa-home"></i></a></li>
+              <li class="breadcrumb-item active">Document</li>
+            </ul>
+        </div>
+      </div>
+  </div>
+    <div class="card mt-2">
         <div class="header">
             <h2 class="mb-3">Documents collection</h2>
             <h5>Total number of docs: {{ $total_documents }}</h5>

@@ -5,7 +5,7 @@
 <body>
 @include('frontend.layouts.header')
 <main>
-        <div class="container">
+        <div class="container space-he">
           <div class="row justift-content-center roba">
               <div class="col-md-7 mt-3">	
                   <div class="carousel-inner">
@@ -18,24 +18,42 @@
           <div class="col-md-4">
               <div class="cont-input">
               <h3 class="reset-title">Gufungura konti</h3>
-              <form id="createacc" method="post" action="">
-                <div class="form-group pt-4">
-                   <label>Nomero y'indangamuntu</label>
-                   <input type="text" class="form-control" placeholder="Andika Nomero y'indangamuntu" />
+              <form id="form-register" method="post" action="{{ route('register') }}">
+                @csrf
+                <div id="form-total">
+                        <div class="inner">
+                            <div class="form-group pt-4">
+                            <label>Nomero y'indangamuntu</label>
+                            <input type="text" name="idnum" class="form-control" placeholder="Andika Nomero y'indangamuntu" />
+                            @error('idnum')<p class='text-danger'>{{$message}}</p>@enderror
+                        </div>
+                        </div>
+                        <div class="inner">
+                            <div class="form-group">
+                            <label>Nomero ya telefoni (Rwanda)</label>
+                            <input type="text" name="phone" class="form-control" placeholder="Andika Nomero ya telefoni" />
+                            </div>
+                        </div>
+                        <div class="inner">
+                            <div class="form-group">
+                            <label>Ijambo ry'ibanga</label>
+                            <input type="password" name="password" class="form-control" placeholder="Andika Ijambo ry'ibanga" />
+                            </div>
+                        </div>
+                        <div class="inner">
+                            <div class="form-group">
+                            <label>Subizamo Ijambo ry'ibanga</label>
+                            <input type="password" name="password-confirm" class="form-control" placeholder="Subizamo Ijambo ry'ibanga" required/>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Emeza</button>
                 </div>
-                <div class="form-group">
-                   <label>Nomero ya telefoni (Rwanda)</label>
-                   <input type="text" class="form-control" placeholder="Andika Nomero ya telefoni" />
-                </div>
-                <div class="form-group">
-                    <label>Andika umubare wibanga</label>
-                    <input type="password" class="form-control" placeholder="Andika ijambo ry'ibanga" />
-                 </div>
-                <Button type="submit" class="btn btn-primary btn-lg btn-block">Iyandikishe</Button>
-             </form>
+                </form>
               </div>
           </div>
-      </div>
+        </div>
+        </div>
     </main>
 
     @include('frontend.layouts.footer')

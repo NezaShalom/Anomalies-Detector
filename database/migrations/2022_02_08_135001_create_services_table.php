@@ -15,10 +15,11 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longText('description')->nullable();
-            $table->float('price')->default(0);
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('name');
+            $table->text('description');
+            $table->integer('price');
+            $table->string('yatanzwe');
+            $table->tinyInteger('iminsi');
             $table->timestamps();
         });
     }

@@ -13,12 +13,12 @@ class AdminMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-        if (auth()->user() &&  auth()->user()->role == 'admin') {
-            return $next($request);
-        }
+    // public function handle($request, Closure $next)
+    // {
+    //     if (auth()->user() && auth()->user()->role == 'admin' && auth()->user()->status == 'active') {
+    //         return $next($request);
+    //     }
 
-        return redirect()->back();
-    }
+    //     return redirect()->back();
+    // }
 }

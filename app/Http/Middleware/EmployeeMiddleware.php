@@ -15,7 +15,7 @@ class EmployeeMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->role == 'employee' or auth()->user()->role == 'admin') {
+        if (auth()->user()->role == 'employee' or auth()->user()->role == 'admin' && auth()->user()->status == 'active') {
             return $next($request);
         }
         return redirect()->back();

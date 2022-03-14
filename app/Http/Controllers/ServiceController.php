@@ -49,6 +49,7 @@ class ServiceController extends Controller
             $request,
             [
                 'title' => 'string|required',
+                'slug' => 'string|required',
                 'description' => 'string|required',
                 'price' => 'integer|required',
                 'status' => 'nullable|in:active,inactive',

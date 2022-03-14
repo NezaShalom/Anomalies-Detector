@@ -39,6 +39,7 @@
     <!-- End Hero Section -->
 
     <br>
+    @yield('content')
 
   <form class="modal multi-step" id="demo-modal-1">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -77,7 +78,7 @@
     </div>
 </form>
 
-<!--Mituelle-->
+<!--Mituelle
 <form class="modal multi-step" id="demo-modal-2">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content kose">
@@ -111,7 +112,7 @@
         </div>
         </div>
     </div>
-</form>
+</form>-->
 
 <form class="modal multi-step" id="demo-modal-3">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -265,6 +266,117 @@
 </div>
 </form>
 
+
+<form class="modal multi-step" id="demo-modal-8">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content kose">
+      <div class="row">
+        <div class="col-sm-12">
+        <div class="modal-header border-0">
+        <h5 class="modal-title" id="exampleModalLabel">Icyemezo cy'ubutane</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        
+        <div class="modal-body step-1">
+          <h6>Ibyerekeye iyi serivisi.</h6>
+          <p>Icyemezo cy'uwatandukanye n'uwo bashakanye gihabwa abanyarwanda bamaze gusesa amasezerano yo gushyingirwa. Icyi cyemezo gitangwa na serivisi y'rangamimerere cyikemeza ko ugihawe yatandukanye n'uwo bashakanye nyuma y'uko byemejwe n'urukiko. Gitangirwa ku murenge, abagisaba berekana inyandiko y'urubanza rwemeza ko batandukanye.</p>
+          <div class="row">
+            <div class="col">
+                <h6><i class="fal fa-clock"></i> Igihe dosiye imara : Umunsi 1</h6>
+                <h6><i class="fal fa-house-damage"></i> Yatanzwe na : <span class="provider">MINALOC</span> </h6>
+            </div>
+            <div class="col">
+              <h6><i class="fal fa-tag"></i>  Igiciro: RWF 1,500</h6> 
+          </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <a type="button" class="btn btn-primary" href="#">Saba</a>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</form>
+
+
+<form class="modal multi-step" id="demo-modal-9">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content kose">
+      <div class="row">
+        <div class="col-sm-12">
+        <div class="modal-header border-0">
+        <h5 class="modal-title" id="exampleModalLabel">Icyemezo cy'ubwenegihugu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        
+        <div class="modal-body step-1">
+          <h6>Ibyerekeye iyi serivisi.</h6>
+          <p>Icyemezo cy' Ubwenegihugu gihabwa umunyarwanda kugirango gihamye ko afite ubwenegihugu bw'u Rwanda.Dosiye isaba yoherezwa ku buyobozi bw’inzego z’ibanze ku rwego rw'umurenge kugirango isuzumwe.</p>
+          <div class="row">
+            <div class="col">
+                <h6><i class="fal fa-clock"></i> Igihe dosiye imara : Umunsi 1</h6>
+                <h6><i class="fal fa-house-damage"></i> Yatanzwe na : <span class="provider">MINALOC</span> </h6>
+            </div>
+            <div class="col">
+              <h6><i class="fal fa-tag"></i>  Igiciro: RWF 1,500</h6> 
+          </div>
+          </div>
+          <select class="custom-select mt-3" style="width: 140px;">
+            <option selected>Ndisabira</option>
+          </select>
+        </div>
+        <div class="modal-footer border-0">
+          <a type="button" class="btn btn-primary" href="#">Saba</a>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</form>
+
+<form class="modal multi-step" id="demo-modal-10">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content kose">
+      <div class="row">
+        <div class="col-sm-12">
+        <div class="modal-header border-0">
+        <h5 class="modal-title" id="exampleModalLabel">Icyangombwa cyerekana ko umuntu atakatiwe nincyiko</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        
+        <div class="modal-body step-1">
+          <h6>Ibyerekeye iyi serivisi.</h6>
+          <p>Iyi serivisi ifasha abanyarwanda n'abanyamahanga baba cyangwa babaye mu Rwanda gusaba icyangombwa cyerekana ko umuntu yakatiwe cg atakatiwe n'inkiko. Iki cyangombwa kimara amezi 6.</p>
+          <div class="row">
+            <div class="col">
+                <h6><i class="fal fa-clock"></i> Igihe dosiye imara : Umunsi 3</h6>
+                <h6><i class="fal fa-house-damage"></i> Yatanzwe na : <span class="provider">NPPA</span> </h6>
+            </div>
+            <div class="col">
+              <h6><i class="fal fa-tag"></i>  Igiciro: RWF 1,200</h6> 
+          </div>
+          </div>
+          <select class="custom-select mt-3" style="width: 140px;">
+            <option selected>Ndisabira</option>
+          </select>
+        </div>
+        <div class="modal-footer border-0">
+          <a type="button" class="btn btn-primary" href="#">Saba</a>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</form>
+
+
 <form class="modal multi-step" id="demo-modal-7">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content kose">
@@ -327,6 +439,7 @@
 
 
 
+
   <br>
 
     <!--Services section-->
@@ -339,22 +452,54 @@
             <div class="col">
               <div class="ser-items" style="color: black;">
                 <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-1" href="#"> Icyemezo cy'uko uringaragu </a></p>
-                <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-2" href="{{route('frontend.mituweri')}}"> kwishyura Mituweli </a></p>
                 <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-3" href="/#"> Icyemezo cy'uko umuntu ariho </a></p>
             </div>
             </div>
             <div class="col">
               <div class="ser-items">
-                <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-7" href="/#"> Serivisi z'ishyingirwa</a></p>
-                  <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-6" href="/#"> Gusaba Indangamuntu </a></p>
-                    <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-5" href="/#"> Icyemezo cy'ubupfakazi </a></p>
+                <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-6" href="/#"> Gusaba Indangamuntu </a></p>
+                <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-5" href="/#"> Icyemezo cy'ubupfakazi </a></p>
               </div>
             </div>
+            
             <div class="col">
               <div class="ser-items">
                 <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-4" href="/#"> Icyemezo gisimbura indangamuntu </a></p>
-                <p><a class="text-da" href="/#"> Serivisi z'amavuko </a></p>
-                <p><a class="text-da" href="/#"> Uruhushya rwo gutwara abantu </a></p>
+                <p><a class="text-da" href="/#">Icyangombwa cyogutwara byagateganyo</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container mt-3 mb-4">
+          <h2 class="home-title" style="font-family: 'Nunito', sans-serif;">Irangamimerere</h2>
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col">
+              <div class="ser-items" style="color: black;">
+                <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-9" href="/#"> Icyemezo cy'ubwenegihugu </a></p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="ser-items" style="color: black;">
+                <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-8" href="/#"> Icyemezo cy'ubutane </a></p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="ser-items" style="color: black;">
+                <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-7" href="#"> Serivisi z'ishyingirwa </a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container mt-3 mb-4">
+          <h2 class="home-title" style="font-family: 'Nunito', sans-serif;">Icyemezo Cy’ubushinjacyaha</h2>
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col">
+              <div class="ser-items" style="color: black;">
+                <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-10" href="/#"> Icyangombwa cyerekana ko umuntu atakatiwe nincyiko </a></p>
               </div>
             </div>
           </div>
@@ -362,8 +507,9 @@
     </section> 
     <br>
     
-    
-    
+{{--     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script>
       function changeFunc() {
         var x= document.getElementById("myGus");
@@ -373,7 +519,15 @@
           x.style.display = "block";
         }
       }
-      </script>
+
+  $('#myModal .save').click(function (e) {
+  e.preventDefault();
+  addImage(5);
+  $('#myModal').modal('hide');
+  //$(this).tab('show')
+  return false;
+})
+      </script> --}}
       
         @include('frontend.layouts.footer')
         @include('frontend.layouts.foot')

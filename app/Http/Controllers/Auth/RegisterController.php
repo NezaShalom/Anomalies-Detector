@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -49,10 +50,11 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        dd($data);
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:10', 'unique:users'],
-            'password' => ['required', 'string', 'min:3', 'confirmed'],
+            'idnum' => ['required'],
+            'phone' => ['required', 'string', 'max:10', 'unique:users'],
+            'password' => ['required', 'string', 'min:5', 'confirmed'],
         ]);
     }
 
@@ -64,9 +66,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // dd('ok');
+        $nid = request('idnum');
+        $client = new \GuzzleHttp\Client();
+        $req = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
+        $response = json_decode($req->getBody());
+        $citizen = $response[0];
+        $role_id = DB::table('roles')->where('name', 'customer')->value('id');
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name' => $citizen->name,
+            'role_id' => $role_id,
+            'national_id' => $data['idnum'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
     }
