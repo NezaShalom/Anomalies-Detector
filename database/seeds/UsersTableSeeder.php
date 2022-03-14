@@ -1,5 +1,6 @@
 <?php
 
+use App\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -13,31 +14,25 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        $role_id = Role::where('name', '=', 'admin')->value('id');
         DB::table('users')->insert([
             [
-                'name' => 'Shaw',
-                'national_id' => '4262772',
-                'email' => 'Shaw@gmail.com',
+                'role_id' => $role_id,
+                'name' => 'Shalom Igiraneza',
+                'national_id' => '1120013450009325',
                 'password' => Hash::make('11111'),
-                'mobile_number' => '0788908183',
-                'role' => 'admin',
-                'status' => 'inactive',
-                'age' => '2002-01-01',
-                'marriage' => 'married',
+                'phone' => '0732916444',
+                'status' => 'active'
             ],
 
             [
-                'age' => '2002-01-01',
-                'national_id' => '42627725',
-                'email' => 'Shap@gmail.com',
-                'mobile_number' => '0788908182',
-                'name' => 'Shap',
+                'role_id' => $role_id,
+                'name' => 'Eric Nshuit',
+                'national_id' => '1120013450009321',
                 'password' => Hash::make('11111'),
-                'role' => 'customer',
-                'status' => 'inactive',
-                'marriage' => 'not_married',
+                'phone' => '0732916442',
+                'status' => 'active'
             ],
-
 
         ]);
     }

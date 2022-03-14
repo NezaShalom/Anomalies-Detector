@@ -16,7 +16,7 @@ Route::get('/admin', 'AdminController@admin')->name('admin');
 // Route::resource('roles', 'RoleController');
 Route::resource('users', 'UserController');
 // Document
-Route::resource('dosiyes', 'DosiyeController');
+Route::resource('dosiyes', 'DosiyeController')->middleware('admin');
 Route::get('edit/{id}', 'DosiyeController@edit');
 Route::delete('delete/{id}', 'DosiyeController@destroy');
 // Service

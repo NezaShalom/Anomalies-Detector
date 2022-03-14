@@ -40,23 +40,24 @@
                                     <tr>
                                         <th style="width:60px;">S.N#</th>
                                         <th>Name</th>
+                                        <th>National_ID</th>
                                         <th>Role</th>
+                                        <th>Failed-Task</th>
                                         <th>Time</th>
-                                        <th>Failed-Task</th>                                    
-                                        <th>Number of Fallshort</th><!--How many time employee failed to the system failed-->
-                                        <th>Diactivate</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($entryAnomalies as $entryAnomaly)
+                                        
                                     <tr>
-                                        <td>1</td>
-                                        <td>Hossein</td>
-                                        <td><span class="badge badge-success">Employee</span></td>
-                                        <td>03-03-2020</td>
-                                        <td><span class="badge badge-danger">Hire Create employee</span></td>
-                                        <td>3</td>
-                                        <td>1</td>
+                                        <td>{{$entryAnomaly->id}}</td>
+                                        <td>{{$entryAnomaly->names}}</td>
+                                        <td>{{$entryAnomaly->national_id}}</td>
+                                        <td><span class="badge badge-success">{{$entryAnomaly->role}}</span></td>
+                                        <td>{{$entryAnomaly->failedtask}}</td>
+                                        <td>{{$entryAnomaly->created_at}}</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
