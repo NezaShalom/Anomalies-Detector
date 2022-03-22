@@ -9,11 +9,11 @@
     <div class="col-lg-12 col-md-12 col-xs-12 space-he">
         <div class="content-wrapper container">
             <div class="breadcrumbs mt-4">
-                <a href="/">Ahabanza</a> / Icyangombwa cyuko uriho
+                <a href="/">Ahabanza</a> / Icyangombwa cyerekana ko umuntu atakatiwe nincyiko
             </div>
             
             <div class="service-header d-flex pt-4">
-                <h4 class="service-preview-title mb-4"> Icyangombwa cyuko uriho </h4>
+                <h4 class="service-preview-title mb-4"> Icyangombwa cyerekana ko umuntu atakatiwe nincyiko </h4>
             </div>
             
             <div class="imt mb-3">
@@ -21,7 +21,7 @@
             </div>
 
           <div class="">
-            @error('minaloc_ariho')<p class="alert alert-danger d-flex align-items-center font-weight-bold" role="alert">
+            @error('minaloc_criminal')<p class="alert alert-danger d-flex align-items-center font-weight-bold" role="alert">
                 <i class="fal fa-exclamation-circle fa-2x"></i>
                      {{$message}}
                 </p>
@@ -39,9 +39,9 @@
                         </div>
                     </div>
                     <div class="row">   
-                    <form id="arihoform" action="{{ route('ariho.store') }}" method="post">
+                    <form id="criminalform" action="{{ route('criminalfree.store') }}" method="post">
                         @csrf
-                        <input type="hidden" name="service_name" value="Icyangombwa cyuko uriho">
+                        <input type="hidden" name="service_name" value="Icyangombwa cyerekana ko umuntu atakatiwe nincyiko">
                         <div class="col-sm-4">
                             <label class="main-label mb-3 font-weight-bold"> Umwirondoro w'usaba serivisi </label>
                             <div class="row">

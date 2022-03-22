@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    use RegistersUsers;
     /**
      * Display a listing of the resource.
      *
@@ -19,15 +22,15 @@ class UserController extends Controller
         return view('admin.user.index', compact('users'));
     }
 
-    public function userStatus(Request $request)
-    {
-        if ($request->mode == 'true') {
-            DB::table('users')->where('id', $request->id)->update(['status' => 'active']);
-        } else {
-            DB::table('users')->where('id', $request->id)->update(['status' => 'inactive']);
-        }
-        return response()->json(['message' => 'Successfully updated status', 'status' => true]);
-    }
+    // public function userStatus(Request $request)
+    // {
+    //     if ($request->mode == 'true') {
+    //         DB::table('users')->where('id', $request->id)->update(['status' => 'active']);
+    //     } else {
+    //         DB::table('users')->where('id', $request->id)->update(['status' => 'inactive']);
+    //     }
+    //     return response()->json(['message' => 'Successfully updated status', 'status' => true]);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -45,35 +48,51 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'national_id' => 'required',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string',
-            'department_id' => 'required',
-            'mobile_number' => 'required',
-            'address' => 'required',
-            'role' => 'required',
-            'age' => 'required',
-            'image' => 'mimes:jpeg,jpg,png'
-        ]);
+    public function store(array $data)
 
-        $data = $request->all();
-        if ($request->hasFile('image')) {
-            $image = $request->image->hashName();
-            $request->image->move(public_path('profile'), $image);
-        } else {
-            $image = 'avatar2.png';
-        }
-        $data['name'] = $request->firstname . ' ' . $request->lastname;
-        $data['image'] = $image;
-        $data['password'] = bcrypt($request->password);
-        User::create($data);
-        return redirect()->back()->with('message', 'User created Successfully');
+    {
+        dd($data);
+
+        return Validator::make($data, [
+            'idnum' => ['required'],
+            'role_id' => ['required'],
+            'password' => ['required', 'string', 'min:5', 'confirmed'],
+            'phone' => ['required', 'string', 'max:10', 'unique:users'],
+        ]);
+        // $data = $request->all();
+        // $data['name'] = $request->firstname . ' ' . $request->lastname;
+        // $data['password'] = bcrypt($request->password);
+        // User::create($data);
+        // return redirect()->back()->with('message', 'User created Successfully');
+        $nid = request('idnum');
+        $client = new \GuzzleHttp\Client();
+        $req = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
+        $response = json_decode($req->getBody());
+        $citizen = $response[0];
+        return User::create([
+            'name' => $citizen->name,
+            'role_id' => $data['role'],
+            'national_id' => $data['idnum'],
+            'phone' => $data['phone'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
+    // protected function createa(array $data)
+    // {
+    //     // dd('ok');
+    //     $nid = request('idnum');
+    //     $client = new \GuzzleHttp\Client();
+    //     $req = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
+    //     $response = json_decode($req->getBody());
+    //     $citizen = $response[0];
+    //     return User::create([
+    //         'name' => $citizen->name,
+    //         'role_id' => $data['role'],
+    //         'national_id' => $data['idnum'],
+    //         'phone' => $data['phone'],
+    //         'password' => Hash::make($data['password']),
+    //     ]);
+    // }
 
     /**
      * Display the specified resource.
@@ -108,30 +127,21 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
-            'department_id' => 'required',
-            'role' => 'required',
-            'status' => 'required',
-            'mobile_number' => 'required',
-            'address' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'national_id' => 'required',
+            'role_id' => 'required',
+            'phone' => 'required|max:10',
             'password' => 'required',
-            'image' => 'mimes:jpeg,jpg,png'
+            'status' => 'required',
         ]);
         $data = $request->all();
         $user = User::find($id);
-        if ($request->hasFile('image')) {
-            $image = $request->image->hashName();
-            $request->image->move(public_path('profile'), $image);
-        } else {
-            $image = $user->image;
-        }
         if ($request->password) {
             $password = $request->password;
         } else {
             $password = $user->password;
         }
-        $data['image'] = $image;
         $data['password'] = bcrypt($password);
         $user->update($data);
         return redirect()->back()->with('message', 'User updated Successfully');

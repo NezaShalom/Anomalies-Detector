@@ -50,7 +50,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        dd($data);
+        //dd($data);
         return Validator::make($data, [
             'idnum' => ['required'],
             'phone' => ['required', 'string', 'max:10', 'unique:users'],

@@ -41,7 +41,8 @@
                     </div>
                     <div class="row">
                         <form id="partdeform" action="{{ route('widower.store') }}" method="post">
-                            @csrf
+                        @csrf
+                        <input type="hidden" name="service_name" value="Icyemezo cy'ubupfakazi">
                         <div class="col-sm-4">
                             <label class="main-label mb-3 font-weight-bold"> Umwirondoro w'usaba serivisi </label>
                             <div class="row">
@@ -55,8 +56,8 @@
 
                                 <div class="form-group col-md-8">
                                     <label class="sub-label"> Nomero y'indangamuntu <span class="text-danger">*</span></label>
-                                    <input id="idnumb" name="idnumb" type="text" class="form-control" placeholder="Andika nomero y'indangamuntu" formcontrolname="periodFormControl">
-                                    @error('idnumb')<p class='text-danger'>{{$message}}</p>@enderror
+                                    <input id="idnum" name="idnum" type="text" class="form-control" placeholder="Andika nomero y'indangamuntu" formcontrolname="periodFormControl">
+                                    @error('idnum')<p class='text-danger'>{{$message}}</p>@enderror
 
                                 </div>
                             </div>

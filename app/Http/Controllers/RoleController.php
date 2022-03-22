@@ -3,25 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Department;
+use App\Role;
 
-class DepartmentController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
-
     public function index()
     {
-        $departments = Department::all();
-        return view('admin.department.index', compact('departments'));
+        $roles = Role::all();
+        return view('admin.role.index', compact('roles'));
     }
 
     /**
@@ -31,7 +25,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.department.create');
+        return view('admin.role.create');
     }
 
     /**
@@ -43,10 +37,10 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:departments'
+            'name' => 'required|unique:roles'
         ]);
-        Department::create($request->all());
-        return redirect()->back()->with('message', 'Department created Successfully');
+        Role::create($request->all());
+        return redirect()->back()->with('message', 'Role is create Successfully');
     }
 
     /**
@@ -68,8 +62,8 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        $department = Department::find($id);
-        return view('admin.department.edit', compact('department'));
+        $role = Role::find($id);
+        return view('admin.role.edit', compact('role'));
     }
 
     /**
@@ -81,10 +75,10 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $department  = Department::find($id);
+        $role  = Role::find($id);
         $data = $request->all();
-        $department->update($data);
-        return redirect()->route('departments.index')->with('message', 'Record updated successfully');
+        $role->update($data);
+        return redirect()->route('roles.index')->with('message', 'Record updated successfully');
     }
 
     /**
@@ -95,8 +89,8 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        $department = Department::find($id);
-        $department->delete();
-        return redirect()->route('departments.index')->with('message', 'Record deleted successfully');
+        $role = Role::find($id);
+        $role->delete();
+        return redirect()->route('roles.index')->with('message', 'Role deleted successfully');
     }
 }

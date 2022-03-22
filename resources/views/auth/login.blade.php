@@ -2,71 +2,60 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="phone" class="col-md-4 col-form-label text-md-right">Phone number</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
-
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+    <div class="row">
+        <div class="col-lg-7 d-none-mob">
+            <div class="preview-container">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Icyemezo ushaka</h5>
+                  </div>
+                
+                <div class="modal-body step-2">
+                    <h6>Ibyerekeye iyi serivisi</h6>
+                    <p>Kubona service iyariyo yose kurubuga rwa Irembo bisaba ko ugomba kuba ufite konti, kubatayifite bayifungura.</p>
+                
+                  <div class="row">
+                      <div class="col">
+                          <h6><i class="fal fa-house-damage"></i> Yatanzwe na : <span class="provider">MINISITERI</span> </h6>
+                      </div>
+                      
+                      <div class="col">
+                        <h6><i class="fal fa-tag"></i> Igiciro : Cyirahinduka</h6> 
+                      </div>
+                  </div>
                 </div>
             </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="account">
+                <div class="col-sm-9">
+                <h4 class="mt-4"><i class="fal fa-user" style="width: 18px; top: -3px; margin-right: 5px;"></i> Injira</h4>
+
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <div class="form-group mt-3">
+                      <label for="phone">Nomero ya telefoni (Rwanda) <span class="text-danger">*</span></label>
+                      <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" required maxlength="10" minlength="10" value="{{ old('phone') }}" required placeholder="Andika nomero ya Telefoni">
+                      @error('phone')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                
+                    <div class="form-group text-left">
+                      <label for="password">Ijambo ry'ibanga <span class="text-danger">*</span></label>
+                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Andika ijambo ry'ibanga">
+                      @error('password')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                  <button type="submit" class="btn btn-dark btn-block btn-round">Injira</button>
+                </form>
+            </div>
+        </div>
         </div>
     </div>
 </div>

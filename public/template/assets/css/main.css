@@ -2821,7 +2821,7 @@ html.fullscreen-bg #wrapper {
     margin-top: 61px;
     position: fixed;
     left: 5px;
-    background-color: #f4f7f6;
+    background-color: hsl(160, 16%, 96%);
     z-index: 11;
     overflow-y: scroll;
     scrollbar-width: none;
@@ -2946,7 +2946,8 @@ html.fullscreen-bg #wrapper {
 }
 
 .sidebar-nav .metismenu>li.active>a {
-    background-color: #f1f1f1
+    background-color: #212529;
+    color: white
 }
 
 .sidebar-nav .metismenu>li .active a {
@@ -2998,7 +2999,7 @@ html.fullscreen-bg #wrapper {
 .sidebar-nav .metismenu a:focus,
 .sidebar-nav .metismenu a:active {
     text-decoration: none;
-    background: #f1f1f1
+    background: #f4f7f6
 }
 
 .sidebar-nav .metismenu .has-arrow::after {
@@ -3727,7 +3728,7 @@ select.form-control:not([size]):not([multiple]) {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-    background-color: #f1f1f1
+    background-color: #f4f7f6
 }
 
 .progress.wide {

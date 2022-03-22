@@ -114,6 +114,14 @@ class FrontendController extends Controller
     {
         return ($request);
     }
+    public function getCriminal_status()
+    {
+        return view('frontend.shop.criminalfree');
+    }
+    public function getDivorce_status()
+    {
+        return view('frontend.shop.devorce');
+    }
     public function serviice()
     {
         $service = Service::where('status', 'active')->get();

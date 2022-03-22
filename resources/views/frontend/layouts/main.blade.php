@@ -293,7 +293,7 @@
           </div>
         </div>
         <div class="modal-footer border-0">
-          <a type="button" class="btn btn-primary" href="#">Saba</a>
+          <a type="button" class="btn btn-primary" href="{{route('frontend.divorce')}}">Saba</a>
         </div>
       </div>
     </div>
@@ -368,7 +368,7 @@
           </select>
         </div>
         <div class="modal-footer border-0">
-          <a type="button" class="btn btn-primary" href="#">Saba</a>
+          <a type="button" class="btn btn-primary" href="{{route('frontend.criminalfree')}}">Saba</a>
         </div>
       </div>
     </div>

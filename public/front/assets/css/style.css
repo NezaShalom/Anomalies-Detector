@@ -528,3 +528,22 @@ RECEIPT CSS
 .align-bottom {
     vertical-align: bottom !important;
 }
+
+/* LOGIN */
+
+.preview-container {
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 0 2px 14px 0 rgb(187 208 221 / 50%);
+}
+
+.verification-form {
+    margin-left: 50px;
+}
+
+/* .title-icon {
+    width: 12px;
+    position: relative;
+    top: -1px;
+    color: #0063cf;
+} */

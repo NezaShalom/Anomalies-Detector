@@ -54,7 +54,7 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-md-8">
+                                <div class="form-group col-lg-12">
                                     <label class="sub-label"> Nomero y'indangamuntu <span class="text-danger">*</span></label>
                                     <input type="text" name="idnum" class="form-control" placeholder="Andika nomero y'indangamuntu" formcontrolname="periodFormControl">
                                     @error('idnum')<p class='text-danger'>{{$message}}</p>@enderror
@@ -109,19 +109,5 @@
 @include('frontend.layouts.footer')    
 @include('frontend.layouts.foot')
 
-{{-- <script>
-function Save() {
-    fetch("{{route('ingaragu.post')}}", {
-      headers: {
-        "X-CSRF-Token": $('input[name="_token"]').val()
-      },
-      method: "post",
-      credentials: "same-origin",
-      body: new FormData(document.getElementById('ingaraguform'))
-    }).then(response=>response.json()).then(function(data){
-        console.log(data);
-    })
-}
-</script> --}}
 </body>
 </html>

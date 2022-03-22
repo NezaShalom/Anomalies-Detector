@@ -15,8 +15,18 @@ class ValidationController extends Controller
     //GUSABA ID
     public function validate_sabaid()
     {
-        //
+        //get birthcerticatenum number
+        $nid = request('ifishi_num');
+
+        $client = new \GuzzleHttp\Client();
+        $request = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
+        $response = json_decode($request->getBody());
+        $citizen_info = $response[0];
+        if ($citizen_info->birthcertificateid == 'alive') {
+        }
     }
+
+
 
     //ARIHO
     public function validate_ariho()
@@ -36,7 +46,15 @@ class ValidationController extends Controller
             if ($citizen_info->life == 'alive') {
                 return view('frontend.pay.receipt');
             } else {
-                $errors['minaloc_ariho'] = ' Your life status is stated as not alive';
+                //save data into anomalies tables
+                DB::table('anomalies')->insert([
+                    'names' => $citizen->name,
+                    'national_id' => request('idnum'),
+                    'service' => request('service_name'),
+                    'created_at' => Carbon::now()
+                ]);
+
+                $errors['minaloc_ariho'] = ' Current subscriber is listed not alive';
                 return back()->withErrors($errors);
             }
         } else {
@@ -93,7 +111,7 @@ class ValidationController extends Controller
     public function validate_widower()
     {
         //get id number
-        $nid = request('idnumb');
+        $nid = request('idnum');
         $client = new \GuzzleHttp\Client();
         $request = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
         $response = json_decode($request->getBody());
@@ -107,11 +125,19 @@ class ValidationController extends Controller
             if ($citizen_info->marriage == 'widower') {
                 return view('frontend.pay.receipt');
             } else {
+
+                //save data into anomalies tables
+                DB::table('anomalies')->insert([
+                    'names' => $citizen->name,
+                    'national_id' => request('idnum'),
+                    'service' => request('service_name'),
+                    'created_at' => Carbon::now()
+                ]);
                 $errors['minaloc_widower'] = ' Your Partner is not listed dead.';
                 return back()->withErrors($errors);
             }
         } else {
-            $errors['idnumb'] = ' invalid national id number';
+            $errors['idnum'] = ' invalid national id number';
             return back()->withErrors($errors);
         }
 
@@ -123,4 +149,73 @@ class ValidationController extends Controller
 
         //else redirect back and display appropriate error
     }
+
+    public function validate_criminalfree()
+    {
+        //get id number
+        $nid = request('idnum');
+        $client = new \GuzzleHttp\Client();
+        $request = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
+        $response = json_decode($request->getBody());
+        if (isset($response) && !empty($response)) {
+            $citizen = $response[0];
+            // dd($citizen);
+            // check if exists in minaloc
+            $request = $client->get('http://localhost:9000/api/minaloc/citizen/info/' . $nid);
+            $response = json_decode($request->getBody());
+            $citizen_info = $response[0];
+            if ($citizen_info->criminalstatus == 'no_jailtime') {
+                return view('frontend.pay.receipt');
+            } else {
+                //save data into anomalies tables
+                DB::table('anomalies')->insert([
+                    'names' => $citizen->name,
+                    'national_id' => request('idnum'),
+                    'service' => request('service_name'),
+                    'created_at' => Carbon::now()
+                ]);
+
+                $errors['minaloc_criminal'] = ' Your criminal record is charged 6 month above';
+                return back()->withErrors($errors);
+            }
+        } else {
+            $errors['idnum'] = 'invalid national id number';
+            return back()->withErrors($errors);
+        }
+    }
+    public function validate_divorcestatus()
+    {
+        //get id number
+        $nid = request('idnum');
+        $client = new \GuzzleHttp\Client();
+        $request = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
+        $response = json_decode($request->getBody());
+        if (isset($response) && !empty($response)) {
+            $citizen = $response[0];
+            // dd($citizen);
+            // check if exists in minaloc
+            $request = $client->get('http://localhost:9000/api/minaloc/citizen/info/' . $nid);
+            $response = json_decode($request->getBody());
+            $citizen_info = $response[0];
+            if ($citizen_info->criminalstatus == 'divorced') {
+                return view('frontend.pay.receipt');
+            } else {
+                //save data into anomalies tables
+                DB::table('anomalies')->insert([
+                    'names' => $citizen->name,
+                    'national_id' => request('idnum'),
+                    'service' => request('service_name'),
+                    'created_at' => Carbon::now()
+                ]);
+
+                $errors['minaloc_divorce'] = ' Your martual status is recorded not divorced';
+                return back()->withErrors($errors);
+            }
+        } else {
+            $errors['idnum'] = 'invalid national id number';
+            return back()->withErrors($errors);
+        }
+    }
 }
+
+//f4f7f6

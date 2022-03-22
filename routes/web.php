@@ -13,7 +13,7 @@ Auth::routes();
 Route::get('/admin', 'AdminController@admin')->name('admin');
 
 
-// Route::resource('roles', 'RoleController');
+Route::resource('roles', 'RoleController');
 Route::resource('users', 'UserController');
 // Document
 Route::resource('dosiyes', 'DosiyeController')->middleware('admin');
@@ -36,17 +36,22 @@ Route::get('/create-account', 'FrontendController@getCreateaccount')->name('fron
 Route::get('/mituweri', 'FrontendController@getMituweri')->name('frontend.mituweri');
 Route::get('/document', 'FrontendController@getDocument')->name('frontend.shaka');
 Route::get('/single', 'FrontendController@getIngaragu')->name('frontend.ingaragu')->middleware('auth');
-Route::get('/being-alive', 'FrontendController@getAriho')->name('frontend.ariho');
-Route::get('/identity_card_temporary_issuance', 'FrontendController@getSimbura')->name('frontend.simbura');
-Route::get('/widow_widower_certificate', 'FrontendController@getPartde')->name('frontend.partde');
+Route::get('/being-alive', 'FrontendController@getAriho')->name('frontend.ariho')->middleware('auth');;
+Route::get('/identity_card_temporary_issuance', 'FrontendController@getSimbura')->name('frontend.simbura')->middleware('auth');;
+Route::get('/widow_widower_certificate', 'FrontendController@getPartde')->name('frontend.partde')->middleware('auth');;
 Route::get('/aquire_id', 'FrontendController@getSabaid')->name('frontend.sabaid');
-Route::get('/marriage_services', 'FrontendController@getShingirwa')->name('frontend.shingirwa');
-
+Route::get('/marriage_services', 'FrontendController@getShingirwa')->name('frontend.shingirwa')->middleware('auth');;
+Route::get('/criminal_status', 'FrontendController@getCriminal_status')->name('frontend.criminalfree')->middleware('auth');;
+Route::get('/divorce_status', 'FrontendController@getDivorce_status')->name('frontend.divorce')->middleware('auth');;
 
 //POST
 Route::post('/ingaragu', 'ValidationController@validate_ingaragu')->name('ingaragu.store');
 Route::post('/widower', 'ValidationController@validate_widower')->name('widower.store');
 Route::post('/being-alive-status', 'ValidationController@validate_ariho')->name('ariho.store');
+Route::post('/minor_aquire_id', 'ValidationController@validate_sabaid')->name('sabaid.store');
+Route::post('/criminal_status_free', 'ValidationController@validate_criminalfree')->name('criminalfree.store');
+Route::post('/divorce_status_approval', 'ValidationController@validate_divorcestatus')->name('divorcestatus.store');
+
 
 //Receipt
 Route::get('user-receipt', 'FrontendController@receipt')->name('frontend.receipt');
