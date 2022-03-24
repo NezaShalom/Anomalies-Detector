@@ -48,17 +48,18 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(array $data)
+    public function store($Request, $data)
 
     {
-        dd($data);
-
-        return Validator::make($data, [
+        //     dd($data);
+        $this->validate($data, [
             'idnum' => ['required'],
             'role_id' => ['required'],
             'password' => ['required', 'string', 'min:5', 'confirmed'],
             'phone' => ['required', 'string', 'max:10', 'unique:users'],
         ]);
+
+        dd($data);
         // $data = $request->all();
         // $data['name'] = $request->firstname . ' ' . $request->lastname;
         // $data['password'] = bcrypt($request->password);

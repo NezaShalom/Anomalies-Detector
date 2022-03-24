@@ -51,7 +51,7 @@ Route::post('/being-alive-status', 'ValidationController@validate_ariho')->name(
 Route::post('/minor_aquire_id', 'ValidationController@validate_sabaid')->name('sabaid.store');
 Route::post('/criminal_status_free', 'ValidationController@validate_criminalfree')->name('criminalfree.store');
 Route::post('/divorce_status_approval', 'ValidationController@validate_divorcestatus')->name('divorcestatus.store');
-
+Route::post('/temporary_NationalID_license', 'ValidationController@validate_SimburaID')->name('tempoid.store');
 
 //Receipt
 Route::get('user-receipt', 'FrontendController@receipt')->name('frontend.receipt');

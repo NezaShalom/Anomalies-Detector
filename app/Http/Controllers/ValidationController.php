@@ -15,15 +15,8 @@ class ValidationController extends Controller
     //GUSABA ID
     public function validate_sabaid()
     {
-        //get birthcerticatenum number
-        $nid = request('ifishi_num');
+        //get birthcerticate number and check if under 16
 
-        $client = new \GuzzleHttp\Client();
-        $request = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
-        $response = json_decode($request->getBody());
-        $citizen_info = $response[0];
-        if ($citizen_info->birthcertificateid == 'alive') {
-        }
     }
 
 
@@ -150,6 +143,7 @@ class ValidationController extends Controller
         //else redirect back and display appropriate error
     }
 
+    //CRIMINAL INFO
     public function validate_criminalfree()
     {
         //get id number
@@ -183,6 +177,8 @@ class ValidationController extends Controller
             return back()->withErrors($errors);
         }
     }
+
+    //DEVORCE
     public function validate_divorcestatus()
     {
         //get id number
@@ -197,7 +193,7 @@ class ValidationController extends Controller
             $request = $client->get('http://localhost:9000/api/minaloc/citizen/info/' . $nid);
             $response = json_decode($request->getBody());
             $citizen_info = $response[0];
-            if ($citizen_info->criminalstatus == 'divorced') {
+            if ($citizen_info->marriage == 'divorced') {
                 return view('frontend.pay.receipt');
             } else {
                 //save data into anomalies tables
@@ -209,6 +205,41 @@ class ValidationController extends Controller
                 ]);
 
                 $errors['minaloc_divorce'] = ' Your martual status is recorded not divorced';
+                return back()->withErrors($errors);
+            }
+        } else {
+            $errors['idnum'] = 'invalid national id number';
+            return back()->withErrors($errors);
+        }
+    }
+
+    //TEMPORARY_ID_LICENSE
+    public function validate_SimburaID()
+    {
+        //get id number
+        $nid = request('idnum');
+        $client = new \GuzzleHttp\Client();
+        $request = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
+        $response = json_decode($request->getBody());
+        if (isset($response) && !empty($response)) {
+            $citizen = $response[0];
+            // dd($citizen);
+            // check if exists in minaloc
+            $request = $client->get('http://localhost:9000/api/nida/temporary_ID_license/' . $nid);
+            $response = json_decode($request->getBody());
+            $tempo_info = $response[0];
+            if ($tempo_info->IDreportedlost == 'yes') {
+                return view('frontend.pay.receipt');
+            } else {
+                //save data into anomalies tables
+                DB::table('anomalies')->insert([
+                    'names' => $citizen->name,
+                    'national_id' => request('idnum'),
+                    'service' => request('service_name'),
+                    'created_at' => Carbon::now()
+                ]);
+
+                $errors['temporalyIDmssg'] = " Your National ID is'nt reported lost to the Police";
                 return back()->withErrors($errors);
             }
         } else {

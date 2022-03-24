@@ -465,7 +465,7 @@
             <div class="col">
               <div class="ser-items">
                 <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-4" href="/#"> Icyemezo gisimbura indangamuntu </a></p>
-                <p><a class="text-da" href="/#">Icyangombwa cyogutwara byagateganyo</a></p>
+                <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-7" href="#"> Serivisi z'ishyingirwa </a></p>
               </div>
             </div>
           </div>
@@ -487,7 +487,7 @@
             </div>
             <div class="col">
               <div class="ser-items" style="color: black;">
-                <p><a class="text-da" data-toggle="modal" data-target="#demo-modal-7" href="#"> Serivisi z'ishyingirwa </a></p>
+                <p><a class="text-da" href="/#">Icyangombwa cyogutwara byagateganyo</a></p>
               </div>
             </div>
           </div>

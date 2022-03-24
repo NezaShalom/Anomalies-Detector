@@ -27,16 +27,12 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label>National ID</label>
-                                            <input type="text" id="idnum" name="idnum" class="form-control @error('idnum') is-invalid @enderror" required maxlength="16" minlength="16">
-                                            @error('idnum')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
+                                            <input type="text" id="idnum" name="idnum" class="form-control @error('idnum') is-invalid @enderror" required maxlength="16" minlength="16" />
+                                            @error('idnum')<p class='text-danger'>{{$message}}</p>@enderror
                                         </div>
                                         <div class="form-group">
                                             <label>Mobile number </label>
-                                            <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" required maxlength="10" minlength="10">
+                                            <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" required maxlength="10" minlength="10" />
                                             @error('phone')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
