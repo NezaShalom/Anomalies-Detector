@@ -20,7 +20,7 @@
             </div>
 
         <div class="">
-            @error('minaloc_ariho')<p class="alert alert-danger d-flex align-items-center font-weight-bold" role="alert">
+            @error('saba_idfail')<p class="alert alert-danger d-flex align-items-center font-weight-bold" role="alert">
                 <i class="fal fa-exclamation-circle fa-2x"></i>
                      {{$message}}
                 </p>
@@ -66,7 +66,8 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label class="sub-label font-weight-bold"> Nimero y'ifishi yamavuko <span class="text-danger">*</span></label>       
-                                    <input name="ifishi_num" placeholder="amazina yawe" type="text" id="ifishi_num" class="form-control">
+                                    <input name="bc" placeholder="ifishi y'amavuko" type="text" id="bc" class="form-control">
+                                    @error('bc')<p class='text-danger'>{{$message}}</p>@enderror
                                 </div>
                             </div>
                         </form>

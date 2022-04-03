@@ -16,7 +16,29 @@ class ValidationController extends Controller
     public function validate_sabaid()
     {
         //get birthcerticate number and check if under 16
+        $bc = request('bc');
+        $client = new \GuzzleHttp\Client();
+        $request = $client->get('http://localhost:9000/api/nida/citizen/age/' . $bc);
+        $response = json_decode($request->getBody());
+        if (isset($response) && !empty($response)) {
+            $citizen = $response[0];
+            if (true) {
+            } else {
+                //save data into anomalies tables
+                DB::table('anomalies')->insert([
+                    'names' => $citizen->name,
+                    'national_id' => request('bc'),
+                    'service' => request('service_name'),
+                    'created_at' => Carbon::now()
+                ]);
 
+                $errors['saba_idfail'] = ' Current user age is not eligible for NationalID';
+                return back()->withErrors($errors);
+            }
+        } else {
+            $errors['bc'] = 'invalid national id number';
+            return back()->withErrors($errors);
+        }
     }
 
 
@@ -248,5 +270,3 @@ class ValidationController extends Controller
         }
     }
 }
-
-//f4f7f6
