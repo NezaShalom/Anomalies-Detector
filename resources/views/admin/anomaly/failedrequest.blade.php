@@ -16,12 +16,12 @@
                     <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm">
                         <div class="sparkline text-left" data-type="line" data-width="8em" data-height="20px" data-line-Width="1" data-line-Color="#00c5dc"
                             data-fill-Color="transparent">3,5,1,6,5,4,8,3</div>
-                        <span>Visitors</span>
+                        <span>Successful</span>
                     </div>
                     <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm">
                         <div class="sparkline text-left" data-type="line" data-width="8em" data-height="20px" data-line-Width="1" data-line-Color="#f4516c"
                             data-fill-Color="transparent">4,6,3,2,5,6,5,4</div>
-                        <span>Visits</span>
+                        <span>Failed</span>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="header">
-                  <h2><strong>Service</strong></h2>
+                  <h2><strong>User request anomalies</strong></h2>
                 </div>
                     <div class="body">
                         <div class="table-responsive">

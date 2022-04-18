@@ -19,20 +19,20 @@
                     <div class="col-md-4">
                         <div class="cont-input">
                         <h3 class="reset-title mt-5">Gushakisha dosiye</h3>
-                        <form id="shakaform" method="post" action="">
+                        <form id="shakaform" action="">
                             <div class="form-group pt-4">
                                 <label class="sub-label"> Code ya dosiye <span class="text-danger">*</span></label>
-                                <select name="ubwoko" class="custom-select" placeholder="Igihe ubwishingizi" style="width: 120px;">
+                                <select name="doctype" class="custom-select" placeholder="Igihe ubwishingizi" style="width: 120px;">
                                     <option selected>Nomero yadosie</option>
                                     <option value="1">Kode yokwishyura</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Nomero y'idosiye <span class="text-danger">*</span></label>
-                                <input name="code" type="text" class="form-control" placeholder="Andika Nomero ya dosiye" />
+                                <input name="docid" type="text" class="form-control" placeholder="Andika Nomero ya dosiye" />
                             </div>
+                            <Button type="submit" class="btn btn-outline-success btn-sx btn-block"><i class="fa fa-search"></i> Shaka</Button>
                         </form>
-                        <Button type="submit" class="btn btn-outline-success btn-sx btn-block" onclick="Savedoc()"><i class="fa fa-search"></i> Shaka</Button>
                         </div>
                     </div>
                 </div>

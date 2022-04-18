@@ -48,23 +48,16 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($Request, $data)
+    public function store(Request $request, $id)
 
     {
         //     dd($data);
-        $this->validate($data, [
+        $this->validate($request, [
             'idnum' => ['required'],
             'role_id' => ['required'],
             'password' => ['required', 'string', 'min:5', 'confirmed'],
             'phone' => ['required', 'string', 'max:10', 'unique:users'],
         ]);
-
-        dd($data);
-        // $data = $request->all();
-        // $data['name'] = $request->firstname . ' ' . $request->lastname;
-        // $data['password'] = bcrypt($request->password);
-        // User::create($data);
-        // return redirect()->back()->with('message', 'User created Successfully');
         $nid = request('idnum');
         $client = new \GuzzleHttp\Client();
         $req = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);

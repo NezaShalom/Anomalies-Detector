@@ -19,6 +19,8 @@ Route::resource('users', 'UserController');
 Route::resource('dosiyes', 'DosiyeController')->middleware('admin');
 Route::get('edit/{id}', 'DosiyeController@edit');
 Route::delete('delete/{id}', 'DosiyeController@destroy');
+Route::get('findin/{id}', 'DosiyeController@show');
+
 // Service
 Route::resource('services', 'ServiceController');
 Route::post('service_status', 'ServiceController@serviceStatus')->name('services.status');

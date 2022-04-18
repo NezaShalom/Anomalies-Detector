@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Kreait\Firebase\Database;
 use Illuminate\Http\Request;
 use App\Dosiye;
+use Illuminate\Support\Facades\DB;
 
 class DosiyeController extends Controller
 {
@@ -68,7 +69,13 @@ class DosiyeController extends Controller
      */
     public function show($id)
     {
+        $key = $id;
+        //     $data = Dosiye::find('docid', $key)->get();
+        //     dd($data);
+        //     return view('admin.dosiye.edit', compact('data'));
         //
+        $documentis = $this->database->getReference($this->tablename)->where('id', $key)->getValue();
+        dd($documentis);
     }
 
     /**

@@ -55,7 +55,7 @@
                 
                 <div class="modal-body step-2">
                     <h6>Ibyerekeye iyi serivisi</h6>
-                    <p>L'Attestation de Célibat est un document officiel qui certifie qu'une personne est célibataire. Ce document peut etre utilisé pour demander des services tels que l'Enregistrement du Mariage, un prêt bancaire, un service d'assurance, etc. Le dossier est traité par les autorités de l'Administration Locale au niveau du Secteur.</p>
+                    <p>Icyemezo cy'uko Umuntu ari Ingaragu gitangwa n'ubuyobozi cyikerekana ko ari ingaragu. Icyi cyemezo gishobora gukoreshwa mu gusaba serivisi zinyuranye nko kwiyandikisha kugirango ushyingirwe, gusaba inguzanyo muri banki, gushaka ubwishingizi, n'ibindi...Dosiye isaba yoherezwa mu buyobozi bw’inzego z’ibanze ku murenge kugirango isuzumwe. Icyi cyemezo ifite agaciro k'amezi atatu.</p>
                 
                   <div class="row">
                       <div class="col">

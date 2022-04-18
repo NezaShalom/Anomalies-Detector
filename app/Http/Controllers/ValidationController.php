@@ -21,25 +21,30 @@ class ValidationController extends Controller
         $request = $client->get('http://localhost:9000/api/nida/citizen/age/' . $bc);
         $response = json_decode($request->getBody());
         if (isset($response) && !empty($response)) {
-            $citizen = $response[0];
-            if (true) {
-            } else {
-                //save data into anomalies tables
-                DB::table('anomalies')->insert([
-                    'names' => $citizen->name,
-                    'national_id' => request('bc'),
-                    'service' => request('service_name'),
-                    'created_at' => Carbon::now()
-                ]);
-
-                $errors['saba_idfail'] = ' Current user age is not eligible for NationalID';
-                return back()->withErrors($errors);
-            }
+        $citizen = $response[0];
+        $dateofbirth = $citizen->dob;
+        $years = Carbon::parse($dateofbirth)->age;
+        //dd($years);
+        if ($years > 16) {
+            return view('frontend.pay.receipt');
         } else {
-            $errors['bc'] = 'invalid national id number';
+            //save data into anomalies tables
+            DB::table('anomalies')->insert([
+                'names' => $citizen->name,
+                'national_id' => request('bc'),
+                'service' => request('service_name'),
+                'created_at' => Carbon::now()
+            ]);
+
+            $errors['saba_idfail'] = ' Current user age is not eligible for NationalID';
+            return back()->withErrors($errors);
+        }
+        else {
+            $errors['idnum'] = 'invalid national id number';
             return back()->withErrors($errors);
         }
     }
+
 
 
 
@@ -103,7 +108,7 @@ class ValidationController extends Controller
                     'created_at' => Carbon::now()
                 ]);
 
-                $errors['minaloc_ingaragu'] = ' Your Marital status is not single';
+                $errors['minaloc_ingaragu'] = ' Your Marital status is not stated *single';
                 return back()->withErrors($errors);
             } else {
                 return view('frontend.pay.receipt');

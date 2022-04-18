@@ -70,16 +70,17 @@
                                     @error('bc')<p class='text-danger'>{{$message}}</p>@enderror
                                 </div>
                             </div>
+                            <div class="mb-3 float-right">
+                                <div class="col mt-3">
+                                    <button type="button" class="btn btn-info">Hagarika</button>
+                                    <button type="submit" class="btn btn-primary">Ibikurikira</button>
+                                </div>
+                            </div>
                         </form>
                     </div> 
                 </div>
             </div>
-            <div class="mb-3 float-right">
-                <div class="col mt-3">
-                    <button type="button" class="btn btn-info">Hagarika</button>
-                    <button type="submit" class="btn btn-primary">Ibikurikira</button>
-                </div>
-            </div>
+
         </div>
     </div>
 </div><br><br>
