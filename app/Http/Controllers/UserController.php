@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -32,44 +33,45 @@ class UserController extends Controller
     //     return response()->json(['message' => 'Successfully updated status', 'status' => true]);
     // }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.user.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, $id)
+
+    public function store(Request $request)
 
     {
         //     dd($data);
-        $this->validate($request, [
-            'idnum' => ['required'],
-            'role_id' => ['required'],
-            'password' => ['required', 'string', 'min:5', 'confirmed'],
-            'phone' => ['required', 'string', 'max:10', 'unique:users'],
+        $data = $request->validate([
+            'idnum' => 'required|max:16|unique:users,national_id',
+            'phone' => 'required', 'string', 'max:10', 'unique:users,phone',
+            'password' => 'required',
+            'role' => 'required',
         ]);
+        // dd($data);
         $nid = request('idnum');
         $client = new \GuzzleHttp\Client();
         $req = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
         $response = json_decode($req->getBody());
-        $citizen = $response[0];
-        return User::create([
-            'name' => $citizen->name,
-            'role_id' => $data['role'],
-            'national_id' => $data['idnum'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
-        ]);
+        // dd($response);
+        if (isset($response) && !empty($response)) {
+            $citizen = $response[0];
+            $role = Role::where('name', request('role'))->first();
+            // dd($role->id);
+            $user = User::create([
+                'role_id' => $role->id,
+                'name' => $citizen->name,
+                'national_id' => $data['idnum'],
+                'phone' => $data['phone'],
+                'password' => Hash::make($data['password']),
+            ]);
+
+            return back()->with('message', 'succesfully added user');
+        } else {
+            $errors['idnum'] = 'invalid national id number';
+            return back()->withErrors($errors);
+        }
     }
     // protected function createa(array $data)
     // {

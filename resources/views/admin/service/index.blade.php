@@ -42,7 +42,7 @@
                 @foreach($services as $key=>$service)
                 <tr>
                     <td>{{$key+1}}</td>
-                    <td>{{$service->title}}</td>
+                    <td>{{$service->name}}</td>
                     <td>{{$service->description}}</td>
                     <td>{{number_format($service->price,2)}}</td>
                     <td>

@@ -3116,6 +3116,16 @@ label {
     display: none
 }
 
+select:focus,
+input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #2196F3 !important;
+    outline-width: 0 !important;
+    font-weight: 400
+}
+
 .fancy-checkbox input[type="checkbox"]+span {
     display: inline-block;
     vertical-align: middle;

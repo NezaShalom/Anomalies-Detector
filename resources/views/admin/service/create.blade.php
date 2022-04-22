@@ -34,10 +34,10 @@
                 <div class="body">
                     <div class="row clearfix">
                         <div class="header">
-                            <h2><strong>Basic</strong> Information <small>Description text here...</small></h2>
+                            <h2><strong>Basic Information </strong><small>Description text here...</small></h2>
                         </div>
 
-                        <div class="col-lg-12 col-md-6">
+                        <div class="col-lg-10 col-md-6">
                             <div class="form-group">
                             <label>Title</label>
                             <input type="text" placeholder="Title" class="form-control" name="title">
@@ -64,11 +64,13 @@
                                 <option value="inactive" {{old('status')=='inactive' ? 'selected' : ''}}>Inactive</option>
                             </select>
                         </div>
-                        <button class="btn btn-primary" type="submit">
-                            Submit
-                        </button>
+
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-12">
+                    <button class="btn btn-outline-info" type="submit">Create Service</button>
+                </div>
+                <br>
             </form>
         </div>
     </div>

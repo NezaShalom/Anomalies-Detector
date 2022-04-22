@@ -31,7 +31,7 @@
                 </div>
                 
                 <div class="card-body">
-                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <div class="alert alert-primary d-flex align-items-center" role="alert">
                         <i class="fal fa-exclamation-triangle fa-2x"></i>
                         <div class="font-weight-bold">
                             Iyi serivisi ihabwa abanyarwanda gusa

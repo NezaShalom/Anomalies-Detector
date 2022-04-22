@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+
 Auth::routes();
+
 
 
 Route::get('/admin', 'AdminController@admin')->name('admin');
@@ -54,6 +54,7 @@ Route::post('/minor_aquire_id', 'ValidationController@validate_sabaid')->name('s
 Route::post('/criminal_status_free', 'ValidationController@validate_criminalfree')->name('criminalfree.store');
 Route::post('/divorce_status_approval', 'ValidationController@validate_divorcestatus')->name('divorcestatus.store');
 Route::post('/temporary_NationalID_license', 'ValidationController@validate_SimburaID')->name('tempoid.store');
+Route::post('/marriage_book', 'ValidationController@validate_askmarry')->name('marry.store');
 
 //Receipt
 Route::get('user-receipt', 'FrontendController@receipt')->name('frontend.receipt');
@@ -61,6 +62,3 @@ Route::get('user-receipt', 'FrontendController@receipt')->name('frontend.receipt
 Route::any('thank', 'PaymentController@lastone');
 Route::any('payment-page', 'PaymentController@index');
 Route::any('verify-payment', 'PaymentController@verify');
-
-
-Route::get('/home', 'HomeController@index')->name('home');

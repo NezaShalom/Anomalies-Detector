@@ -21,29 +21,88 @@ class ValidationController extends Controller
         $request = $client->get('http://localhost:9000/api/nida/citizen/age/' . $bc);
         $response = json_decode($request->getBody());
         if (isset($response) && !empty($response)) {
-        $citizen = $response[0];
-        $dateofbirth = $citizen->dob;
-        $years = Carbon::parse($dateofbirth)->age;
-        //dd($years);
-        if ($years > 16) {
-            return view('frontend.pay.receipt');
-        } else {
-            //save data into anomalies tables
-            DB::table('anomalies')->insert([
-                'names' => $citizen->name,
-                'national_id' => request('bc'),
-                'service' => request('service_name'),
-                'created_at' => Carbon::now()
-            ]);
+            $citizen = $response[0];
+            $dateofbirth = $citizen->dob;
+            $years = Carbon::parse($dateofbirth)->age;
+            //dd($years);
+            if ($years > 16) {
+                return view('frontend.pay.receipt');
+            } else {
+                //save data into anomalies tables
+                DB::table('anomalies')->insert([
+                    'names' => $citizen->name,
+                    'national_id' => request('bc'),
+                    'service' => request('service_name'),
+                    'created_at' => Carbon::now()
+                ]);
 
-            $errors['saba_idfail'] = ' Current user age is not eligible for NationalID';
-            return back()->withErrors($errors);
-        }
-        else {
+                $errors['saba_idfail'] = ' Current user age is not eligible for NationalID';
+                return back()->withErrors($errors);
+            }
+        } else {
             $errors['idnum'] = 'invalid national id number';
             return back()->withErrors($errors);
         }
     }
+
+
+    // Kwiyandikisha ngo ushyingirwe
+
+    public function validate_askmarry(Request $request)
+    {
+        // dd($request->all());
+        $nid = request('idnum');
+        $client = new \GuzzleHttp\Client();
+        $request = $client->get('http://localhost:9000/api/nida/citizen/' . $nid);
+        $response = json_decode($request->getBody());
+        if (isset($response) && !empty($response)) {
+            $citizen = $response[0];
+            //check if spouse exists
+            $nid2 = request('spousenational');
+            $client = new \GuzzleHttp\Client();
+            $request = $client->get('http://localhost:9000/api/nida/citizen/' . $nid2);
+            $response = json_decode($request->getBody());
+            if (isset($response) && !empty($response)) {
+                //spouse exists i.e both exist
+                // check if both exist in minaloc
+                $request = $client->get('http://localhost:9000/api/minaloc/citizen/info/' . $nid);
+                $response = json_decode($request->getBody());
+                if (isset($response) && !empty($response)) {
+                    $citizen_info = $response[0];
+                    // dd($citizen_info);
+                    //check minaloc info for spouse 2
+                    $request = $client->get('http://localhost:9000/api/minaloc/citizen/info/' . $nid2);
+                    $response = json_decode($request->getBody());
+                    if (isset($response) && !empty($response)) {
+                        //both info exist
+                        $citizen_info2 = $response[0];
+                        dd($citizen_info2);
+                    } else {
+                        //no minaloc info for spouse 2
+                        dd('no minaloc info found for spouse 2');
+                        $errors['noMinalocInfos2'] = 'no minaloc info found for spouse 2';
+                        return back()->withErrors($errors);
+                    }
+                } else {
+                    //no minaloc info for spouse 1
+                    dd('no minaloc info found for spouse 1');
+                    $errors['noMinalocInfos1'] = 'no minaloc info found for spouse 1';
+                    return back()->withErrors($errors);
+                }
+            } else {
+                //spouse does not exist
+                dd('spouse does not exist');
+                $errors['spousenational'] = 'spouse does not exist';
+                return back()->withErrors($errors);
+            }
+        } else {
+            //no citizen found
+            dd('no citizen found');
+            $errors['idnum'] = 'no citizen found';
+            return back()->withErrors($errors);
+        }
+    }
+
 
 
 
