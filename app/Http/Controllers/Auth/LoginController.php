@@ -46,7 +46,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        if (auth()->user()->role->name == 'admin' || auth()->user()->role->name == 'employee') {
+        if (auth()->user()->role->name == 'admin' || auth()->user()->role->name == 'employee' || auth()->user()->role->name == 'modifier') {
             return route('admin');
         } else {
             // return route('homepage');
